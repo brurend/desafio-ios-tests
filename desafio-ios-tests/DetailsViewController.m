@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Bruno Rendeiro. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DetailsViewController.h"
 
-@interface ViewController ()
+@interface DetailsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
