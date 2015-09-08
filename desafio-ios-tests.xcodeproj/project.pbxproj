@@ -16,6 +16,7 @@
 		950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8791B9A2A1200A4AF98 /* ShotViewController.m */; };
 		950ED8801B9A2FB200A4AF98 /* ShotViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */; };
 		950ED8841B9A378500A4AF98 /* shotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8831B9A378500A4AF98 /* shotCell.m */; };
+		950ED8891B9F569C00A4AF98 /* ShotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8881B9F569C00A4AF98 /* ShotController.m */; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
@@ -51,6 +52,8 @@
 		950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewControllerTests.m; sourceTree = "<group>"; };
 		950ED8821B9A378500A4AF98 /* shotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shotCell.h; sourceTree = "<group>"; };
 		950ED8831B9A378500A4AF98 /* shotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shotCell.m; sourceTree = "<group>"; };
+		950ED8871B9F569C00A4AF98 /* ShotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotController.h; sourceTree = "<group>"; };
+		950ED8881B9F569C00A4AF98 /* ShotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotController.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 		95BA68B81B9A15A7000E0EAC /* desafio-ios-tests */ = {
 			isa = PBXGroup;
 			children = (
+				950ED8871B9F569C00A4AF98 /* ShotController.h */,
+				950ED8881B9F569C00A4AF98 /* ShotController.m */,
 				950ED8811B9A375C00A4AF98 /* CustomCells */,
 				954B0C9B1B9A1F5600FC30FB /* Model */,
 				954B0C9A1B9A1F4D00FC30FB /* ViewControllers */,
@@ -376,6 +381,7 @@
 				950ED86D1B9A1FE900A4AF98 /* ShotModel.m in Sources */,
 				950ED8841B9A378500A4AF98 /* shotCell.m in Sources */,
 				95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */,
+				950ED8891B9F569C00A4AF98 /* ShotController.m in Sources */,
 				950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */,
 				95BA68BC1B9A15A7000E0EAC /* main.m in Sources */,
 			);

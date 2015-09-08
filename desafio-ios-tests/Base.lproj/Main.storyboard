@@ -19,7 +19,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hdy-oY-6DB" id="FAC-1i-nfw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbT-ju-5Ol">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbT-ju-5Ol">
                                             <rect key="frame" x="0.0" y="1" width="600" height="212"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvB-VU-bgp">
@@ -37,6 +37,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="JvB-VU-bgp" secondAttribute="bottom" constant="138.5" id="2mS-vX-O4f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hbT-ju-5Ol" secondAttribute="trailing" constant="-8" id="72F-af-UsH"/>
+                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leadingMargin" constant="-8" id="KjD-vG-Yzg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hbT-ju-5Ol" secondAttribute="bottom" constant="-9" id="XXb-nL-OCD"/>
+                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="top" secondItem="FAC-1i-nfw" secondAttribute="topMargin" constant="-7" id="g5T-WM-5JW"/>
                                         <constraint firstItem="JvB-VU-bgp" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leading" id="ise-6D-msk"/>
                                         <constraint firstItem="JvB-VU-bgp" firstAttribute="leading" secondItem="hbT-ju-5Ol" secondAttribute="leading" id="k7c-dL-eDG"/>
                                         <constraint firstAttribute="bottom" secondItem="JvB-VU-bgp" secondAttribute="bottom" constant="120.5" id="lvQ-MR-fNw"/>
@@ -44,6 +48,9 @@
                                         <constraint firstAttribute="trailing" secondItem="JvB-VU-bgp" secondAttribute="trailing" constant="284" id="zUi-4G-80A"/>
                                     </constraints>
                                     <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="JvB-VU-bgp"/>
+                                        </mask>
                                         <mask key="constraints">
                                             <exclude reference="2mS-vX-O4f"/>
                                         </mask>
