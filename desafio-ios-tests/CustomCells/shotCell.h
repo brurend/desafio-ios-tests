@@ -11,5 +11,6 @@
 @interface shotCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
+@property (weak, nonatomic) IBOutlet UILabel *shotLabel;
 
 @end

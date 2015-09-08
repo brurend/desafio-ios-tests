@@ -41,19 +41,19 @@
 		3DC127DDABD2D60CC4C8A800 /* Pods-desafio-ios-testsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-testsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios-testsTests/Pods-desafio-ios-testsTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DA2455C07114D2B2AAC4E26 /* Pods-desafio-ios-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios-tests/Pods-desafio-ios-tests.release.xcconfig"; sourceTree = "<group>"; };
 		74FC4EFBB1D076B40399CED2 /* Pods-desafio-ios-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios-tests/Pods-desafio-ios-tests.debug.xcconfig"; sourceTree = "<group>"; };
-		950ED86B1B9A1FE900A4AF98 /* ShotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotModel.h; sourceTree = "<group>"; };
-		950ED86C1B9A1FE900A4AF98 /* ShotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotModel.m; sourceTree = "<group>"; };
-		950ED86E1B9A22D900A4AF98 /* ShotPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotPlayerModel.h; sourceTree = "<group>"; };
-		950ED86F1B9A22D900A4AF98 /* ShotPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotPlayerModel.m; sourceTree = "<group>"; };
+		950ED86B1B9A1FE900A4AF98 /* ShotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotModel.h; path = ../model/ShotModel.h; sourceTree = "<group>"; };
+		950ED86C1B9A1FE900A4AF98 /* ShotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotModel.m; path = ../model/ShotModel.m; sourceTree = "<group>"; };
+		950ED86E1B9A22D900A4AF98 /* ShotPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotPlayerModel.h; path = ../model/ShotPlayerModel.h; sourceTree = "<group>"; };
+		950ED86F1B9A22D900A4AF98 /* ShotPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotPlayerModel.m; path = ../model/ShotPlayerModel.m; sourceTree = "<group>"; };
 		950ED8711B9A242900A4AF98 /* ShotModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotModelTests.m; sourceTree = "<group>"; };
 		950ED8761B9A278D00A4AF98 /* ShotPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotPlayerTests.m; sourceTree = "<group>"; };
 		950ED8781B9A2A1200A4AF98 /* ShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController.h; sourceTree = "<group>"; };
 		950ED8791B9A2A1200A4AF98 /* ShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController.m; sourceTree = "<group>"; };
 		950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewControllerTests.m; sourceTree = "<group>"; };
-		950ED8821B9A378500A4AF98 /* shotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shotCell.h; sourceTree = "<group>"; };
-		950ED8831B9A378500A4AF98 /* shotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shotCell.m; sourceTree = "<group>"; };
-		950ED8871B9F569C00A4AF98 /* ShotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotController.h; sourceTree = "<group>"; };
-		950ED8881B9F569C00A4AF98 /* ShotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotController.m; sourceTree = "<group>"; };
+		950ED8821B9A378500A4AF98 /* shotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shotCell.h; path = ../CustomCells/shotCell.h; sourceTree = "<group>"; };
+		950ED8831B9A378500A4AF98 /* shotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shotCell.m; path = ../CustomCells/shotCell.m; sourceTree = "<group>"; };
+		950ED8871B9F569C00A4AF98 /* ShotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotController.h; path = ../Networking/ShotController.h; sourceTree = "<group>"; };
+		950ED8881B9F569C00A4AF98 /* ShotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotController.m; path = ../Networking/ShotController.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +107,17 @@
 				950ED8831B9A378500A4AF98 /* shotCell.m */,
 			);
 			name = CustomCells;
+			path = "untitled folder";
+			sourceTree = "<group>";
+		};
+		950ED88A1B9F680400A4AF98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				950ED8871B9F569C00A4AF98 /* ShotController.h */,
+				950ED8881B9F569C00A4AF98 /* ShotController.m */,
+			);
+			name = Networking;
+			path = "untitled folder";
 			sourceTree = "<group>";
 		};
 		954B0C9A1B9A1F4D00FC30FB /* ViewControllers */ = {
@@ -117,7 +128,7 @@
 				950ED8781B9A2A1200A4AF98 /* ShotViewController.h */,
 				950ED8791B9A2A1200A4AF98 /* ShotViewController.m */,
 			);
-			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		954B0C9B1B9A1F5600FC30FB /* Model */ = {
@@ -129,6 +140,7 @@
 				950ED86F1B9A22D900A4AF98 /* ShotPlayerModel.m */,
 			);
 			name = Model;
+			path = "untitled folder";
 			sourceTree = "<group>";
 		};
 		95BA68AD1B9A15A7000E0EAC = {
@@ -154,8 +166,7 @@
 		95BA68B81B9A15A7000E0EAC /* desafio-ios-tests */ = {
 			isa = PBXGroup;
 			children = (
-				950ED8871B9F569C00A4AF98 /* ShotController.h */,
-				950ED8881B9F569C00A4AF98 /* ShotController.m */,
+				950ED88A1B9F680400A4AF98 /* Networking */,
 				950ED8811B9A375C00A4AF98 /* CustomCells */,
 				954B0C9B1B9A1F5600FC30FB /* Model */,
 				954B0C9A1B9A1F4D00FC30FB /* ViewControllers */,

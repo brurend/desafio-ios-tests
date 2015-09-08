@@ -8,12 +8,16 @@
 
 #import "ShotViewController.h"
 #import "ShotModel.h"
+#import "ShotController.h"
+#import "shotCell.h"
+#import <UIImageView+WebCache.h>
 
 @interface ShotViewController ()
 
 @end
 
 @implementation ShotViewController
+NSString* const placeholder = @"placeholder.png";
 
 @synthesize manager, shots,posts, pageCount, loading;
 
@@ -22,6 +26,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 250;
     self.navigationItem.title = @"Shots view";
     
     manager = [AFHTTPRequestOperationManager manager];
@@ -29,7 +34,9 @@
     posts = [[NSMutableArray alloc] init];
     [self refreshView];
     pageCount = 1;
+
     [self loadPosts:pageCount];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,29 +62,19 @@
 
 #pragma mark - Métodos para popular o array
 -(void) loadPosts:(int)page{
+
     [self.refreshControl beginRefreshing];
     
+    NSString *json = @"http://api.dribbble.com/shots/popular";
     NSDictionary *parameters = @{@"page": [@(page) stringValue]};
     
-    [manager GET:@"http://api.dribbble.com/shots/popular" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        //Conversão do JSON para array com objetos "shot"
-        shots = [MTLJSONAdapter modelsOfClass:[ShotModel class] fromJSONArray:[responseObject objectForKey:@"shots"] error:nil];
-        
-        //impede que objetos duplicados sejam adicionados a tabela
-        for (int i = 0; i < [shots count]; i++) {
-            if (![posts containsObject:[shots objectAtIndex:i]])
-                [posts addObject:[shots objectAtIndex:i]];
-        }
-        
-        [[self tableView] reloadData]; //Recarrega a tabela com os dados atualizados
-        [self.refreshControl endRefreshing];
-        
-        self.loading = false; //Flag pra impedir que o carregamento ocorra mais de uma vez simultaneamente
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Erro: %@",error);
+    [[ShotController sharedInstance]test:json parameters:parameters success:^(NSArray *shot) {
+        [posts addObjectsFromArray:shot];
+        [self.tableView reloadData];
     }];
+    
+    [self.refreshControl endRefreshing];
+    self.loading = false;
     
 }
 
@@ -89,20 +86,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return [posts count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"replace" forIndexPath:indexPath];
     
     static NSString *shotCellIdentifier = @"shotCell";
     
-//    ShotCell *cell = [self.tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
-//    ShotModel *shot = [posts objectAtIndex:[indexPath row]];
-//    cell.titleLabel.text = shot.title;
-//    [cell.shotImage sd_setImageWithURL:shot.image
-//                      placeholderImage:[UIImage imageNamed:placeholder]];
+    shotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+    ShotModel *shot = [posts objectAtIndex:[indexPath row]];
+    cell.shotLabel.text = shot.title;
+    
+    [cell.shotImage sd_setImageWithURL:shot.image
+                      placeholderImage:[UIImage imageNamed:placeholder]];
 //    cell.viewsLabel.text = [shot.views stringValue];
 //    cell.fundoView.backgroundColor = [UIColor blackColor];
 //    cell.fundoView.alpha = 0.7f;
@@ -124,9 +121,8 @@
     //Distância antes do fim para carregar antes de chegar completamente até o fundo
     float distance = -100;
     
-    if (y > h + distance && loading == false && pageCount < 50 && [shots count] == 15)
+    if (y > h + distance && loading == false && pageCount < 50)
     {
-        shots = nil;
         loading = true;
         [self loadPosts:++pageCount];
     }

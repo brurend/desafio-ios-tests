@@ -17,4 +17,7 @@
 @property (strong, nonatomic) NSURL *image;
 @property (strong, nonatomic) ShotPlayerModel *player;
 
++(NSArray*)parseArray:(NSArray*)json;
++(instancetype)parse:(NSDictionary*)json;
+
 @end
