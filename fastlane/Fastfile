@@ -1,0 +1,90 @@
+fastlane_version "1.0.2"
+
+default_platform :ios
+
+
+platform :ios do
+
+  before_all do
+    # Não vai ser rodado enquanto estivermos versionando o pods por questoes de ambiente e redes
+    clean_derived_data
+    cocoapods
+
+  end
+
+  def clean_derived_data
+    derived_path =  "#{File.expand_path('~')}/Library/Developer/Xcode/DerivedData/"
+    system("rm -rf #{derived_path}*") if File.directory?(derived_path)
+    puts "Cleaning DerivedData .."
+  end
+
+  def test_and_coverage
+    xctool :test, [
+      '-workspace', 'desafio-ios-tests.xcworkspace',
+      '-scheme', 'desafio-ios-tests',
+      '-configuration', 'Debug',
+      '-reporter', 'plain',
+      '-sdk', 'iphonesimulator',
+      'GCC_GENERATE_TEST_COVERAGE_FILES=YES',
+      'GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES'
+    ].join(' ')
+
+    lcov(
+      project_name: 'desafio-ios-tests',
+      scheme: 'desafio-ios-tests',
+      output_dir: 'coverage_reports'
+    )
+  end
+
+
+  desc "Runs all the tests"
+  lane :test do
+    test_and_coverage
+  end
+
+  desc "Submit a new release to mobrelease"
+  lane :mobr do
+
+    test_and_coverage
+
+    gym(
+         workspace: "desafio-ios-tests.xcworkspace",
+         scheme: "desafio-ios-tests",
+         output_directory: "releases"
+       )
+
+
+
+    # applink = deploy_mobr
+
+    # mailit(applink)
+  end
+
+  def mailit(applink)
+   mailgun(
+     postmaster: "",
+     apikey: "",
+     to: "",
+     success: true,
+     message: "Novo release do Bootcamp iOS ).",
+     app_link: applink
+   )
+ end
+
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+
+  end
+
+
+  error do |lane, exception|
+
+  end
+
+end
+
+
+# More information about multiple platforms in fastlane:
+# https://github.com/KrauseFx/fastlane/blob/master/docs/Platforms.md
