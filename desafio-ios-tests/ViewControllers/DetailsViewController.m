@@ -7,7 +7,7 @@
 //
 
 #import "DetailsViewController.h"
-#import "shotCell.h"
+#import "ShotCell.h"
 #import "DetailsCell.h"
 #import "ShotViewController.h"
 #import <UIImageView+WebCache.h>
@@ -50,7 +50,7 @@ static NSString *shotCellIdentifier = @"shotCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    shotCell *cell = [self.tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+    ShotCell *cell = [self.tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
     cell.shotLabel.text = _shot.title;
     [cell.shotImage sd_setImageWithURL:_shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];

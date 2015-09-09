@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Bruno Rendeiro. All rights reserved.
 //
 
-#import "shotCell.h"
+#import "ShotCell.h"
 
-@implementation shotCell
+@implementation ShotCell
 
 - (void)awakeFromNib {
     // Initialization code

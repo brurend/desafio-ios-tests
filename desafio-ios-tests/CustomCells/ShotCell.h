@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface shotCell : UITableViewCell
+@interface ShotCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet UILabel *shotLabel;

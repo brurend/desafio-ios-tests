@@ -22,6 +22,7 @@ describe(@"Tests shot player", ^{
         expect(spm).toNot.beNil;
     });
     
+    
 });
 
 SpecEnd

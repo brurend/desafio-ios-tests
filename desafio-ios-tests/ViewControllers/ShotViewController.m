@@ -9,7 +9,7 @@
 #import "ShotViewController.h"
 #import "ShotModel.h"
 #import "NetworkingController.h"
-#import "shotCell.h"
+#import "ShotCell.h"
 #import <UIImageView+WebCache.h>
 #import "DetailsViewController.h"
 
@@ -33,7 +33,6 @@ NSString* const placeholder = @"placeholder.png";
     _posts = [[NSMutableArray alloc] init];
     [self refreshView];
     _pageCount = 1;
-
     [self loadPosts:_pageCount];
 
 }
@@ -94,7 +93,7 @@ NSString* const placeholder = @"placeholder.png";
     
     static NSString *shotCellIdentifier = @"shotCell";
     
-    shotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
     ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
     cell.shotLabel.text = shot.title;
     
