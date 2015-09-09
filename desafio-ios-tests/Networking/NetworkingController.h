@@ -10,11 +10,14 @@
 #import "AFNetworking.h"
 #import "Mantle.h"
 #import "ShotModel.h"
+#import "ShotPlayerModel.h"
 
 typedef void (^FetchShot)(NSArray * shot);
+typedef void (^FetchShotFailure)(NSError *erro);
 
 
-@interface ShotController : NSObject
+
+@interface NetworkingController : NSObject
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 @property (strong, nonatomic) NSArray *shots;
@@ -22,7 +25,7 @@ typedef void (^FetchShot)(NSArray * shot);
 
 +(instancetype)sharedInstance;
 //-(NSArray*)loadPosts:(int)pageCount;
--(void)test:(NSString*)json parameters:(NSDictionary*)parameters success:(FetchShot)success;
+-(void)getShot:(NSString*)json parameters:(NSDictionary*)parameters success:(FetchShot)success failure:(FetchShotFailure)failure;
 
 
 @end

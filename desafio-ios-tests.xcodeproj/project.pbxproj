@@ -16,7 +16,8 @@
 		950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8791B9A2A1200A4AF98 /* ShotViewController.m */; };
 		950ED8801B9A2FB200A4AF98 /* ShotViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */; };
 		950ED8841B9A378500A4AF98 /* shotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8831B9A378500A4AF98 /* shotCell.m */; };
-		950ED8891B9F569C00A4AF98 /* ShotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8881B9F569C00A4AF98 /* ShotController.m */; };
+		950ED8891B9F569C00A4AF98 /* NetworkingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8881B9F569C00A4AF98 /* NetworkingController.m */; };
+		950ED88D1BA0B20A00A4AF98 /* DetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
@@ -52,8 +53,10 @@
 		950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewControllerTests.m; sourceTree = "<group>"; };
 		950ED8821B9A378500A4AF98 /* shotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shotCell.h; path = ../CustomCells/shotCell.h; sourceTree = "<group>"; };
 		950ED8831B9A378500A4AF98 /* shotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shotCell.m; path = ../CustomCells/shotCell.m; sourceTree = "<group>"; };
-		950ED8871B9F569C00A4AF98 /* ShotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotController.h; path = ../Networking/ShotController.h; sourceTree = "<group>"; };
-		950ED8881B9F569C00A4AF98 /* ShotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotController.m; path = ../Networking/ShotController.m; sourceTree = "<group>"; };
+		950ED8871B9F569C00A4AF98 /* NetworkingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkingController.h; path = ../Networking/NetworkingController.h; sourceTree = "<group>"; };
+		950ED8881B9F569C00A4AF98 /* NetworkingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkingController.m; path = ../Networking/NetworkingController.m; sourceTree = "<group>"; };
+		950ED88B1BA0B20A00A4AF98 /* DetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsCell.h; path = "desafio-ios-tests/CustomCells/DetailsCell.h"; sourceTree = SOURCE_ROOT; };
+		950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsCell.m; path = "desafio-ios-tests/CustomCells/DetailsCell.m"; sourceTree = SOURCE_ROOT; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				950ED8821B9A378500A4AF98 /* shotCell.h */,
 				950ED8831B9A378500A4AF98 /* shotCell.m */,
+				950ED88B1BA0B20A00A4AF98 /* DetailsCell.h */,
+				950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */,
 			);
 			name = CustomCells;
 			path = "untitled folder";
@@ -113,8 +118,8 @@
 		950ED88A1B9F680400A4AF98 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				950ED8871B9F569C00A4AF98 /* ShotController.h */,
-				950ED8881B9F569C00A4AF98 /* ShotController.m */,
+				950ED8871B9F569C00A4AF98 /* NetworkingController.h */,
+				950ED8881B9F569C00A4AF98 /* NetworkingController.m */,
 			);
 			name = Networking;
 			path = "untitled folder";
@@ -392,9 +397,10 @@
 				950ED86D1B9A1FE900A4AF98 /* ShotModel.m in Sources */,
 				950ED8841B9A378500A4AF98 /* shotCell.m in Sources */,
 				95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */,
-				950ED8891B9F569C00A4AF98 /* ShotController.m in Sources */,
+				950ED8891B9F569C00A4AF98 /* NetworkingController.m in Sources */,
 				950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */,
 				95BA68BC1B9A15A7000E0EAC /* main.m in Sources */,
+				950ED88D1BA0B20A00A4AF98 /* DetailsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

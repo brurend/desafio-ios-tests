@@ -8,9 +8,10 @@
 
 #import "ShotViewController.h"
 #import "ShotModel.h"
-#import "ShotController.h"
+#import "NetworkingController.h"
 #import "shotCell.h"
 #import <UIImageView+WebCache.h>
+#import "DetailsViewController.h"
 
 @interface ShotViewController ()
 
@@ -19,7 +20,6 @@
 @implementation ShotViewController
 NSString* const placeholder = @"placeholder.png";
 
-@synthesize manager, shots,posts, pageCount, loading;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,13 +29,12 @@ NSString* const placeholder = @"placeholder.png";
     self.tableView.estimatedRowHeight = 250;
     self.navigationItem.title = @"Shots view";
     
-    manager = [AFHTTPRequestOperationManager manager];
-    shots = [[NSArray alloc] init];
-    posts = [[NSMutableArray alloc] init];
+    _manager = [AFHTTPRequestOperationManager manager];
+    _posts = [[NSMutableArray alloc] init];
     [self refreshView];
-    pageCount = 1;
+    _pageCount = 1;
 
-    [self loadPosts:pageCount];
+    [self loadPosts:_pageCount];
 
 }
 
@@ -55,9 +54,10 @@ NSString* const placeholder = @"placeholder.png";
 //Executa o Pull to refresh
 -(void)refreshAction
 {
-    [posts removeAllObjects];
-    pageCount = 1;
-    [self loadPosts:pageCount];
+    [self.posts removeAllObjects];
+    [self.tableView reloadData];  //Sem isto não funciona, pq?
+    _pageCount = 1;
+    [self loadPosts:_pageCount];
 }
 
 #pragma mark - Métodos para popular o array
@@ -68,14 +68,14 @@ NSString* const placeholder = @"placeholder.png";
     NSString *json = @"http://api.dribbble.com/shots/popular";
     NSDictionary *parameters = @{@"page": [@(page) stringValue]};
     
-    [[ShotController sharedInstance]test:json parameters:parameters success:^(NSArray *shot) {
-        [posts addObjectsFromArray:shot];
+    [[NetworkingController sharedInstance]getShot:json parameters:parameters success:^(NSArray *shot) {
+        [self.posts addObjectsFromArray:shot];
         [self.tableView reloadData];
+    } failure:^(NSError *erro) {
+        NSLog(@"%@",erro);
     }];
-    
+
     [self.refreshControl endRefreshing];
-    self.loading = false;
-    
 }
 
 #pragma mark - Métodos da tabela
@@ -86,7 +86,7 @@ NSString* const placeholder = @"placeholder.png";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [posts count];
+    return [self.posts count];
 }
 
 
@@ -95,49 +95,36 @@ NSString* const placeholder = @"placeholder.png";
     static NSString *shotCellIdentifier = @"shotCell";
     
     shotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
-    ShotModel *shot = [posts objectAtIndex:[indexPath row]];
+    ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
+    NSLog(@"%@", shot.title);
     cell.shotLabel.text = shot.title;
     
     [cell.shotImage sd_setImageWithURL:shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];
-//    cell.viewsLabel.text = [shot.views stringValue];
-//    cell.fundoView.backgroundColor = [UIColor blackColor];
-//    cell.fundoView.alpha = 0.7f;
+    cell.shotViewsCount.text = [shot.views stringValue];
+    cell.shotView.backgroundColor = [UIColor blackColor];
+    cell.shotView.alpha = 0.7f;
     
     return cell;
 }
 
-//Quando chega no fim da tela carrega a próxima página de shots (Scroll infinito)
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Limites da tela
-    CGPoint offset = self.tableView.contentOffset;
-    CGRect bounds = self.tableView.bounds;
-    CGSize size = self.tableView.contentSize;
-    UIEdgeInsets inset = self.tableView.contentInset;
-    float y = offset.y + bounds.size.height - inset.bottom;
-    float h = size.height;
-    
-    //Distância antes do fim para carregar antes de chegar completamente até o fundo
-    float distance = -100;
-    
-    if (y > h + distance && loading == false && pageCount < 50)
-    {
-        loading = true;
-        [self loadPosts:++pageCount];
+    if (indexPath.row == [self.posts count]-3){
+        [self loadPosts:self.pageCount++];
     }
 }
 
 #pragma mark - Metodos de transição
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"descriptionSegue"])
-//    {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        DescriptionViewController *dvc = segue.destinationViewController;
-//        dvc.shot = [posts objectAtIndex:indexPath.row];
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detailsSegue"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        DetailsViewController *dvc = segue.destinationViewController;
+        dvc.shot = [self.posts objectAtIndex:indexPath.row];
+    }
+}
 
 
 

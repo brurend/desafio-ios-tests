@@ -13,4 +13,7 @@
 @property (strong, nonatomic) NSString *player_name;
 @property (strong, nonatomic) NSURL *player_image;
 
++(NSArray*)parseArray:(NSArray*)json;
++(instancetype)parse:(NSDictionary*)json;
+
 @end

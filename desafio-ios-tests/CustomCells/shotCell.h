@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet UILabel *shotLabel;
+@property (weak, nonatomic) IBOutlet UIView *shotView;
+@property (weak, nonatomic) IBOutlet UILabel *shotViewsCount;
 
 @end

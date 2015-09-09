@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShotModel.h"
 
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UITableViewController
 
+
+@property (strong, nonatomic) ShotModel *shot;
 
 @end
 

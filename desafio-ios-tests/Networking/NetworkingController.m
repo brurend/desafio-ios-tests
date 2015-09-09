@@ -6,38 +6,24 @@
 //  Copyright (c) 2015 Bruno Rendeiro. All rights reserved.
 //
 
-#import "ShotController.h"
+#import "NetworkingController.h"
 #import "ShotModel.h"
+#import "ShotPlayerModel.h"
 
-@implementation ShotController
+@implementation NetworkingController
 
 @synthesize manager,shots,teste;
 
 +(instancetype)sharedInstance{
-    static ShotController *sharedController = nil;
+    static NetworkingController *sharedController = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedController = [[self alloc] init];
     });
     return sharedController;
 }
-//
-//-(NSArray*)loadPosts:(int)page{
-//    NSDictionary *parameters = @{@"page": [@(page) stringValue]};
-//    
-//    [manager GET:@"http://api.dribbble.com/shots/popular" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        shots = [ShotModel parse:[responseObject objectForKey:@"shots"]];
-//    
-//
-//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//         NSLog(@"Erro: %@",error);
-//     }];
-//    
-//    return shots;
-//}
 
--(void)test:(NSString*)json parameters:(NSDictionary*)parameters success:(FetchShot)successBlock {
+-(void)getShot:(NSString*)json parameters:(NSDictionary*)parameters success:(FetchShot)successBlock failure:(FetchShotFailure)failureBlock {
     manager = [AFHTTPRequestOperationManager manager];
     [manager GET:json parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *model = [ShotModel parseArray:[responseObject objectForKey:@"shots"]];
@@ -45,8 +31,10 @@
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Erro: %@",error);
+        failureBlock(error);
     }];
 }
+
+
 
 @end

@@ -11,11 +11,10 @@
 
 
 @interface ShotViewController : UITableViewController
+extern NSString* const placeholder;
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
-@property NSArray *shots;
 @property NSMutableArray *posts;
 @property int pageCount;
-@property BOOL loading;
 
 @end
