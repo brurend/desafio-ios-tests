@@ -96,7 +96,6 @@ NSString* const placeholder = @"placeholder.png";
     
     shotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
     ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
-    NSLog(@"%@", shot.title);
     cell.shotLabel.text = shot.title;
     
     [cell.shotImage sd_setImageWithURL:shot.image
