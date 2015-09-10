@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="fastlane">
   <testsuite name="deploy">
-    <testcase name="0: Verifying required fastlane version" time="0.000584"/>
-    <testcase name="1: default_platform" time="0.000216"/>
-    <testcase name="2: cocoapods" time="11.826009"/>
-    <testcase name="3: xctool" time="25.433174"/>
-    <testcase name="4: lcov" time="0.68223"/>
+    <testcase name="0: Verifying required fastlane version" time="0.000538"/>
+    <testcase name="1: default_platform" time="0.00024"/>
+    <testcase name="2: cocoapods" time="8.358079"/>
+    <testcase name="3: xctool" time="23.816354"/>
+    <testcase name="4: lcov" time="0.628431"/>
   </testsuite>
 </testsuites>

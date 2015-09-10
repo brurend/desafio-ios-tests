@@ -31,47 +31,47 @@ describe(@"Testes detail view controller", ^{
     });
     
     it(@"should exist", ^{
-        expect(dvc).toNot.beNil;
+        expect(dvc).toNot.beNil();
     });
     
     it(@"should have a table view", ^{
-        expect(dvc.tableView).toNot.beNil;
+        expect(dvc.tableView).toNot.beNil();
     });
     
     it(@"should have a prototype shot cell", ^{
-        expect(cell).toNot.beNil;
+        expect(cell).toNot.beNil();
     });
     
     it(@"should have a prototype details cell", ^{
-        expect(dCell).toNot.beNil;
+        expect(dCell).toNot.beNil();
     });
     
     it(@"should have an imageview", ^{
-        expect(cell.shotImage).toNot.beNil;
+        expect(cell.shotImage).toNot.beNil();
     });
     
     it(@"should have a title label", ^{
-        expect(cell.shotLabel).toNot.beNil;
+        expect(cell.shotLabel).toNot.beNil();
     });
     
     it(@"should have a viewsCount label", ^{
-        expect(cell.shotViewsCount).toNot.beNil;
+        expect(cell.shotViewsCount).toNot.beNil();
     });
     
     it(@"should have a container view", ^{
-        expect(cell.shotView).toNot.beNil;
+        expect(cell.shotView).toNot.beNil();
     });
     
     it(@"should have a player name label", ^{
-        expect(dCell.nameLabel).toNot.beNil;
+        expect(dCell.nameLabel).toNot.beNil();
     });
     
     it(@"should have a player image", ^{
-        expect(dCell.avatarImage).toNot.beNil;
+        expect(dCell.avatarImage).toNot.beNil();
     });
 
     it(@"should have a description", ^{
-        expect(dCell.descLabel).toNot.beNil;
+        expect(dCell.descLabel).toNot.beNil();
     });
     
     it(@"should conform with UITableView datasource and delegate protocols", ^{
@@ -83,6 +83,8 @@ describe(@"Testes detail view controller", ^{
         expect(dvc).respondTo(@selector(tableView:numberOfRowsInSection:));
         expect(dvc).respondTo(@selector(tableView:cellForRowAtIndexPath:));
     });
+    
+    
 });
 
 SpecEnd

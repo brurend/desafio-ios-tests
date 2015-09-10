@@ -19,7 +19,7 @@ describe(@"Tests shot player", ^{
     
     it(@"should exist", ^{
         ShotPlayerModel *spm = [[ShotPlayerModel alloc] init];
-        expect(spm).toNot.beNil;
+        expect(spm).toNot.beNil();
     });
     
     

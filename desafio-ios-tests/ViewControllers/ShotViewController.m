@@ -100,8 +100,6 @@ NSString* const placeholder = @"placeholder.png";
     [cell.shotImage sd_setImageWithURL:shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [shot.views stringValue];
-    cell.shotView.backgroundColor = [UIColor blackColor];
-    cell.shotView.alpha = 0.7f;
     
     return cell;
 }

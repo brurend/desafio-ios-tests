@@ -26,11 +26,9 @@ static NSString *shotCellIdentifier = @"shotCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.tableView.dataSource = self;
-//    self.tableView.delegate = self;
-//    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
-    
-    
+    self.tableView.estimatedRowHeight = 250.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.view.frame = CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, self.tableView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,11 +53,10 @@ static NSString *shotCellIdentifier = @"shotCell";
     [cell.shotImage sd_setImageWithURL:_shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [_shot.views stringValue];
-    cell.shotView.backgroundColor = [UIColor blackColor];
-    cell.shotView.alpha = 0.7f;
     
     if (indexPath.row == 1)
     {
+
         DetailsCell *cell = [self.tableView
                              dequeueReusableCellWithIdentifier:detailsCell];
         cell.nameLabel.text = _shot.player.player_name;
@@ -77,7 +74,6 @@ static NSString *shotCellIdentifier = @"shotCell";
 
 #pragma mark - Metodos botoes navBar
 - (IBAction)shareButton:(id)sender {
-    //Bug iOS 8.3 - Facebook não faz compartilhamento de String
     
     NSString *title = _shot.title;
     if ([title length] == 0) title = @"";

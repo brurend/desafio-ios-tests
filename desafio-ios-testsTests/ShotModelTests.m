@@ -23,7 +23,7 @@ describe(@"Testes shot model", ^{
     it(@"should exist", ^{
         ShotModel *sm = [[ShotModel alloc] init];
         
-        expect(sm).notTo.beNil;
+        expect(sm).notTo.beNil();
     });
     
     it(@"should parse dictonary json", ^{
@@ -36,7 +36,7 @@ describe(@"Testes shot model", ^{
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
         ShotModel *sm = [ShotModel parse:[array objectAtIndex:0]];
-        expect(sm).toNot.beNil;
+        expect(sm).toNot.beNil();
         expect(sm.player).to.beInstanceOf([ShotPlayerModel class]);
         expect(sm.image).to.beKindOf([NSURL class]);
     });

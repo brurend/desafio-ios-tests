@@ -218,8 +218,8 @@
 				950ED8711B9A242900A4AF98 /* ShotModelTests.m */,
 				95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */,
 				950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */,
-				95BA68D31B9A15A7000E0EAC /* Supporting Files */,
 				950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */,
+				95BA68D31B9A15A7000E0EAC /* Supporting Files */,
 			);
 			path = "desafio-ios-testsTests";
 			sourceTree = "<group>";
@@ -555,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "desafio-ios-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -568,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "desafio-ios-tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

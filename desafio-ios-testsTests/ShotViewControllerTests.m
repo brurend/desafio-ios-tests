@@ -37,27 +37,27 @@ describe(@"Testes table view principal", ^{
     
     it(@"should have a tableview", ^{
         expect(svc.tableView).toNot.beNil();
-        expect(svc.tableView.delegate).toNot.beNil;
+        expect(svc.tableView.delegate).toNot.beNil();
     });
     
     it(@"should have a prototype cell", ^{
-        expect(cell).toNot.beNil;
+        expect(cell).toNot.beNil();
     });
     
     it(@"should have an imageview", ^{
-        expect(cell.shotImage).toNot.beNil;
+        expect(cell.shotImage).toNot.beNil();
     });
     
     it(@"should have a title label", ^{
-        expect(cell.shotLabel).toNot.beNil;
+        expect(cell.shotLabel).toNot.beNil();
     });
     
     it(@"should have a viewsCount label", ^{
-        expect(cell.shotViewsCount).toNot.beNil;
+        expect(cell.shotViewsCount).toNot.beNil();
     });
     
     it(@"should have a container view", ^{
-        expect(cell.shotView).toNot.beNil;
+        expect(cell.shotView).toNot.beNil();
     });
     
     it(@"should perform a segue", ^{
