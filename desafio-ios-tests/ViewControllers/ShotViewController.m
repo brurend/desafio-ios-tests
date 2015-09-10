@@ -108,7 +108,7 @@ NSString* const placeholder = @"placeholder.png";
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == [self.posts count]-3){
+    if (indexPath.row == [self.posts count]-1){
         [self loadPosts:self.pageCount++];
     }
 }

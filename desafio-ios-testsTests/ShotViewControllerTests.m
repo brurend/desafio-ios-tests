@@ -10,9 +10,12 @@
 #import <Specta.h>
 #import <Expecta.h>
 #import <OCMock.h>
+#import <TLJsonFactory.h>
 
 #import "ShotViewController.h"
 #import "ShotCell.h"
+#import "Shotmodel.h"
+#import "NetworkingController.h"
 
 
 SpecBegin(ShotViewControllerTests)
@@ -35,6 +38,10 @@ describe(@"Testes table view principal", ^{
     it(@"should have a tableview", ^{
         expect(svc.tableView).toNot.beNil();
         expect(svc.tableView.delegate).toNot.beNil;
+    });
+    
+    it(@"should have a prototype cell", ^{
+        expect(cell).toNot.beNil;
     });
     
     it(@"should have an imageview", ^{
@@ -69,6 +76,23 @@ describe(@"Testes table view principal", ^{
     it(@"should respond to UITableViewDataSource required methods", ^{
         expect(svc).respondTo(@selector(tableView:numberOfRowsInSection:));
         expect(svc).respondTo(@selector(tableView:cellForRowAtIndexPath:));
+    });
+    
+    it(@"should have expected ammount of cells", ^{
+        NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
+        NSArray *array = [dictonary objectForKey:@"shots"];
+        
+        id managerMock = [OCMockObject niceMockForClass:[NetworkingController class]];
+        [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
+        id classMock = OCMClassMock([NetworkingController class]);
+        OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
+        
+        for (int i = 0; i < [array count]; i++){
+            [svc.posts addObject:[ShotModel parse:[array objectAtIndex:i]]];
+        }
+        
+        NSInteger row = [svc.tableView numberOfRowsInSection:0];
+        expect(row).to.equal(15);
     });
 
     

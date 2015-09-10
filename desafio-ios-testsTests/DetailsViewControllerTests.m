@@ -38,6 +38,14 @@ describe(@"Testes detail view controller", ^{
         expect(dvc.tableView).toNot.beNil;
     });
     
+    it(@"should have a prototype shot cell", ^{
+        expect(cell).toNot.beNil;
+    });
+    
+    it(@"should have a prototype details cell", ^{
+        expect(dCell).toNot.beNil;
+    });
+    
     it(@"should have an imageview", ^{
         expect(cell.shotImage).toNot.beNil;
     });
