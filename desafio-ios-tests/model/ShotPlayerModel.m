@@ -17,18 +17,18 @@
             };
 }
 
-+(NSValueTransformer *)imageJSONTransformer
++(NSValueTransformer *)avatar_urlJSONTransformer
 {
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }
 
-+(NSArray*)parseArray:(NSArray*)json{
-    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:json error:nil];
-}
-
-+(instancetype)parse:(NSDictionary*)json{
-    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:json error:nil];
-}
+//+(NSArray*)parseArray:(NSArray*)json{
+//    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:json error:nil];
+//}
+//
+//+(instancetype)parse:(NSDictionary*)json{
+//    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:json error:nil];
+//}
 
 
 @end

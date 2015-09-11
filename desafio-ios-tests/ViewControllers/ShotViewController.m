@@ -54,7 +54,6 @@ NSString* const placeholder = @"placeholder.png";
 -(void)refreshAction
 {
     [self.posts removeAllObjects];
-    [self.tableView reloadData];  //Sem isto não funciona, pq?
     _pageCount = 1;
     [self loadPosts:_pageCount];
 }

@@ -56,7 +56,6 @@ static NSString *shotCellIdentifier = @"shotCell";
     
     if (indexPath.row == 1)
     {
-
         DetailsCell *cell = [self.tableView
                              dequeueReusableCellWithIdentifier:detailsCell];
         cell.nameLabel.text = _shot.player.player_name;
@@ -77,15 +76,16 @@ static NSString *shotCellIdentifier = @"shotCell";
     
     NSString *title = _shot.title;
     if ([title length] == 0) title = @"";
-    NSString *desc = _shot.desc;
+    NSString *desc = _shot.description;
     if ([desc length] == 0) desc = @"";
     NSURL *url = _shot.image;
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     if (image == nil) image = [UIImage imageNamed:placeholder];
     NSArray *activityItems = @[title,desc,image];
+    NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
     
     
-    UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:Items applicationActivities:nil];
     
     NSArray *exclude = @[UIActivityTypeAddToReadingList,UIActivityTypeAirDrop,UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFlickr,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll];
     

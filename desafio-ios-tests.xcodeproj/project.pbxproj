@@ -22,6 +22,7 @@
 		950ED8911BA0C64E00A4AF98 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950ED88F1BA0C64E00A4AF98 /* placeholder@2x.png */; };
 		950ED8941BA0CA8400A4AF98 /* dribble.json in Resources */ = {isa = PBXBuildFile; fileRef = 950ED8931BA0CA8400A4AF98 /* dribble.json */; };
 		950ED8961BA0DA4100A4AF98 /* DetailsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */; };
+		950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8981BA3546400A4AF98 /* BaseMantle.m */; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
@@ -65,6 +66,8 @@
 		950ED88F1BA0C64E00A4AF98 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		950ED8931BA0CA8400A4AF98 /* dribble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dribble.json; sourceTree = "<group>"; };
 		950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewControllerTests.m; sourceTree = "<group>"; };
+		950ED8971BA3546400A4AF98 /* BaseMantle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMantle.h; sourceTree = "<group>"; };
+		950ED8981BA3546400A4AF98 /* BaseMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMantle.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			children = (
 				950ED8871B9F569C00A4AF98 /* NetworkingController.h */,
 				950ED8881B9F569C00A4AF98 /* NetworkingController.m */,
+				950ED8971BA3546400A4AF98 /* BaseMantle.h */,
+				950ED8981BA3546400A4AF98 /* BaseMantle.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				950ED8701B9A22D900A4AF98 /* ShotPlayerModel.m in Sources */,
+				950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */,
 				95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */,
 				950ED86D1B9A1FE900A4AF98 /* ShotModel.m in Sources */,
 				950ED8841B9A378500A4AF98 /* ShotCell.m in Sources */,

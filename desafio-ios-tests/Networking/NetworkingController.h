@@ -24,7 +24,6 @@ typedef void (^FetchShotFailure)(NSError *erro);
 @property (strong, nonatomic) NSDictionary *teste;
 
 +(instancetype)sharedInstance;
-//-(NSArray*)loadPosts:(int)pageCount;
 -(void)getShot:(NSString*)json parameters:(NSDictionary*)parameters success:(FetchShot)success failure:(FetchShotFailure)failure;
 
 

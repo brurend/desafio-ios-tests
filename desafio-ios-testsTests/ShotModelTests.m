@@ -55,8 +55,6 @@ describe(@"Testes shot model", ^{
         expect([shotArray objectAtIndex:0]).to.beInstanceOf([ShotModel class]);
     });
     
-
-    
 });
 
 SpecEnd

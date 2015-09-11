@@ -8,8 +8,9 @@
 
 #import "Mantle.h"
 #import "ShotPlayerModel.h"
+#import "BaseMantle.h"
 
-@interface ShotModel : MTLModel <MTLJSONSerializing>
+@interface ShotModel : BaseMantle
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *desc;
@@ -17,7 +18,7 @@
 @property (strong, nonatomic) NSURL *image;
 @property (strong, nonatomic) ShotPlayerModel *player;
 
-+(NSArray*)parseArray:(NSArray*)json;
-+(instancetype)parse:(NSDictionary*)json;
+//+(NSArray*)parseArray:(NSArray*)json;
+//+(instancetype)parse:(NSDictionary*)json;
 
 @end
