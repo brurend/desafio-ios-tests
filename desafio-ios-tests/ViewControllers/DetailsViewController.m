@@ -84,14 +84,20 @@ static NSString *shotCellIdentifier = @"shotCell";
     NSArray *activityItems = @[title,desc,image];
     NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
     
-    
     UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:Items applicationActivities:nil];
     
     NSArray *exclude = @[UIActivityTypeAddToReadingList,UIActivityTypeAirDrop,UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFlickr,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll];
     
     share.excludedActivityTypes = exclude;
     
-    [self presentViewController:share animated:YES completion:nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:share animated:YES completion:nil];
+    }
+    else {
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:share];
+        [popup presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    }
+    
 }
 
 @end

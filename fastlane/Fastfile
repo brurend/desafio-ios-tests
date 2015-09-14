@@ -53,7 +53,7 @@ platform :ios do
          output_directory: "releases"
        )
 
-
+    snapshot
 
     # applink = deploy_mobr
 

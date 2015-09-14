@@ -72,7 +72,7 @@ NSString* const placeholder = @"placeholder.png";
     } failure:^(NSError *erro) {
         NSLog(@"%@",erro);
     }];
-
+    
     [self.refreshControl endRefreshing];
 }
 
@@ -120,6 +120,7 @@ NSString* const placeholder = @"placeholder.png";
         dvc.shot = [self.posts objectAtIndex:indexPath.row];
     }
 }
+
 
 
 

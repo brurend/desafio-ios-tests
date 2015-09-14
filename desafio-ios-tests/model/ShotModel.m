@@ -32,6 +32,7 @@
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:[ShotPlayerModel class]];
 }
 
+
 //+(NSArray*)parseArray:(NSArray*)json{
 //    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:json error:nil];
 //}
