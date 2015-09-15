@@ -27,7 +27,7 @@ static NSString *shotCellIdentifier = @"shotCell";
     [super viewDidLoad];
     
     self.tableView.estimatedRowHeight = 250.0f;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.view.frame = CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, self.tableView.frame.size.height);
 }
 
@@ -53,6 +53,7 @@ static NSString *shotCellIdentifier = @"shotCell";
     [cell.shotImage sd_setImageWithURL:_shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [_shot.views stringValue];
+
     
     if (indexPath.row == 1)
     {
@@ -98,6 +99,11 @@ static NSString *shotCellIdentifier = @"shotCell";
         [popup presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     }
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) return 250.0f;
+    else return UITableViewAutomaticDimension;
 }
 
 @end

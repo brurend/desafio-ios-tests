@@ -23,7 +23,7 @@ describe(@"Testes shot model", ^{
     it(@"should exist", ^{
         ShotModel *sm = [[ShotModel alloc] init];
         
-        expect(sm).notTo.beNil();
+        expect(sm).toNot.beNil();
     });
     
     it(@"should parse dictonary json", ^{

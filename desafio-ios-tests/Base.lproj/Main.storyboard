@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nnb-41-YR4">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,9 +20,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbT-ju-5Ol">
-                                            <rect key="frame" x="0.0" y="1" width="600" height="250"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="233.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="250" id="TTp-dF-sYq"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="TTp-dF-sYq"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
-                                        <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvB-VU-bgp">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvB-VU-bgp">
                                             <rect key="frame" x="0.0" y="199" width="600" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hT-KN-oVM">
@@ -39,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="25k-GB-jT5" secondAttribute="trailing" constant="20" id="8Sh-Xb-Xcx"/>
                                                 <constraint firstAttribute="centerY" secondItem="4hT-KN-oVM" secondAttribute="centerY" id="WeK-d6-VxT"/>
@@ -53,12 +60,12 @@
                                         <constraint firstAttribute="trailing" secondItem="JvB-VU-bgp" secondAttribute="trailing" id="1Gs-q6-G9o"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="JvB-VU-bgp" secondAttribute="bottom" constant="138.5" id="2mS-vX-O4f"/>
                                         <constraint firstAttribute="trailing" secondItem="JvB-VU-bgp" secondAttribute="trailing" id="5tG-h6-Po0"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hbT-ju-5Ol" secondAttribute="trailing" constant="-8" id="72F-af-UsH"/>
-                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leadingMargin" constant="-8" id="KjD-vG-Yzg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hbT-ju-5Ol" secondAttribute="trailing" id="72F-af-UsH"/>
+                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leadingMargin" id="KjD-vG-Yzg"/>
                                         <constraint firstAttribute="bottom" secondItem="JvB-VU-bgp" secondAttribute="bottom" constant="0.5" id="Rqd-jD-aL5"/>
                                         <constraint firstItem="JvB-VU-bgp" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leading" id="Vxh-QE-zZU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hbT-ju-5Ol" secondAttribute="bottom" constant="-9" id="XXb-nL-OCD"/>
-                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="top" secondItem="FAC-1i-nfw" secondAttribute="topMargin" constant="-7" id="g5T-WM-5JW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hbT-ju-5Ol" secondAttribute="bottom" id="XXb-nL-OCD"/>
+                                        <constraint firstItem="hbT-ju-5Ol" firstAttribute="top" secondItem="FAC-1i-nfw" secondAttribute="topMargin" id="g5T-WM-5JW"/>
                                         <constraint firstItem="JvB-VU-bgp" firstAttribute="leading" secondItem="FAC-1i-nfw" secondAttribute="leading" id="ise-6D-msk"/>
                                         <constraint firstItem="JvB-VU-bgp" firstAttribute="leading" secondItem="hbT-ju-5Ol" secondAttribute="leading" id="k7c-dL-eDG"/>
                                         <constraint firstAttribute="bottom" secondItem="JvB-VU-bgp" secondAttribute="bottom" constant="120.5" id="lvQ-MR-fNw"/>
@@ -70,6 +77,7 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="2mS-vX-O4f"/>
+                                            <exclude reference="Rqd-jD-aL5"/>
                                             <exclude reference="ise-6D-msk"/>
                                             <exclude reference="k7c-dL-eDG"/>
                                             <exclude reference="lvQ-MR-fNw"/>
@@ -117,8 +125,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="249.5" id="XFA-r7-9GS"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="XFA-r7-9GS"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
-                                        <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2N7-63-jWe">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2N7-63-jWe">
                                             <rect key="frame" x="0.0" y="199" width="600" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqW-M4-Ty6">
@@ -134,7 +147,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="YqW-M4-Ty6" secondAttribute="centerY" id="0Rl-vJ-U1z"/>
                                                 <constraint firstAttribute="height" constant="50" id="6ht-eP-Jk6"/>

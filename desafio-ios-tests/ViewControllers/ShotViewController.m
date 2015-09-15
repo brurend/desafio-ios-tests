@@ -64,6 +64,7 @@ NSString* const placeholder = @"placeholder.png";
     [self.refreshControl beginRefreshing];
     
     NSString *json = @"http://api.dribbble.com/shots/popular";
+    
     NSDictionary *parameters = @{@"page": [@(page) stringValue]};
     
     [[NetworkingController sharedInstance]getShot:json parameters:parameters success:^(NSArray *shot) {
@@ -100,15 +101,17 @@ NSString* const placeholder = @"placeholder.png";
                       placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [shot.views stringValue];
     
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == [self.posts count]-1){
+    if (indexPath.row == [self.posts count]-3 && self.pageCount <= 50){
         [self loadPosts:self.pageCount++];
     }
 }
+
 
 #pragma mark - Metodos de transição
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

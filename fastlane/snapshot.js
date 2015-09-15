@@ -5,7 +5,7 @@ var app = target.frontMostApp();
 var window = app.mainWindow();
 
 
-target.delay(3)
+target.delay(5)
 captureLocalizedScreenshot("01-ShotView")
 
 window.tableViews()[0].cells()[0].tap();
