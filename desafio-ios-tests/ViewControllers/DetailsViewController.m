@@ -11,6 +11,7 @@
 #import "DetailsCell.h"
 #import "ShotViewController.h"
 #import <UIImageView+WebCache.h>
+#import "NSString+StripHTML.h"
 
 #import <CoreSpotlight/CoreSpotlight.h>
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -52,7 +53,9 @@ static NSString *shotCellIdentifier = @"shotCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ShotCell *cell = [self.tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
-    cell.shotLabel.text = _shot.title;
+    NSRange titleRange = {0, MIN([_shot.title length], 30)};
+    NSString *shortTitle = [_shot.title substringWithRange:titleRange];
+    cell.shotLabel.text = shortTitle;
     [cell.shotImage sd_setImageWithURL:_shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [_shot.views stringValue];
@@ -61,20 +64,14 @@ static NSString *shotCellIdentifier = @"shotCell";
     
     if (indexPath.row == 1)
     {
-        NSAttributedString *atr = [[NSAttributedString alloc] initWithData:[_shot.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-        
-        
         DetailsCell *cell = [self.tableView
                              dequeueReusableCellWithIdentifier:detailsCell];
         cell.nameLabel.text = _shot.player.player_name;
-        cell.descLabel.text = [atr string];
+        cell.descLabel.text = [_shot.desc removeTags];
         cell.avatarImage.clipsToBounds = YES;
         cell.avatarImage.layer.cornerRadius = 20;
         [cell.avatarImage sd_setImageWithURL:_shot.player.player_image
                       placeholderImage:[UIImage imageNamed:placeholder]];
-        
-        NSLog(@"%@",[atr string]);
-        NSLog(@"%@",_shot.desc);
         
         return cell;
     }
@@ -116,32 +113,32 @@ static NSString *shotCellIdentifier = @"shotCell";
     else return UITableViewAutomaticDimension;
 }
 
--(void)search{
-    self.activity = [[NSUserActivity alloc] initWithActivityType:@"com.cs.teste"];
-    NSRange titleRange = {0, MIN([_shot.title length], 90)};
-    NSString *shortTitle = [_shot.title substringWithRange:titleRange];
-    self.activity.title = shortTitle;
-//    self.activity.userInfo = @{@"title":_shot.title, @"description":_shot.desc,@"image":_shot.image};
-    NSSet<NSString *> *set = [[NSSet alloc] initWithArray:@[@"dribble",@"shots",@"design",@"designers"]];
-    self.activity.keywords = set;
-    self.activity.eligibleForSearch = true;
-    
-    
-    CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString*)kUTTypeImage];
-
-    attributeSet.title = shortTitle;
-    NSRange descRange = {0, MIN([_shot.desc length],300)};
-    NSString *shortDesc = [_shot.desc substringWithRange:descRange];
-    attributeSet.contentDescription = shortDesc;
-    NSURL *url = _shot.image;
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    NSData *data = UIImagePNGRepresentation(image);
-    attributeSet.thumbnailData = data;
-    
-    self.activity.contentAttributeSet = attributeSet;
-    [self.activity becomeCurrent];
-    
-
-}
+//-(void)search{
+//    self.activity = [[NSUserActivity alloc] initWithActivityType:@"com.cs.teste"];
+//    NSRange titleRange = {0, MIN([_shot.title length], 90)};
+//    NSString *shortTitle = [_shot.title substringWithRange:titleRange];
+//    self.activity.title = shortTitle;
+////    self.activity.userInfo = @{@"title":_shot.title, @"description":_shot.desc,@"image":_shot.image};
+//    NSSet<NSString *> *set = [[NSSet alloc] initWithArray:@[@"dribble",@"shots",@"design",@"designers"]];
+//    self.activity.keywords = set;
+//    self.activity.eligibleForSearch = true;
+//    
+//    
+//    CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString*)kUTTypeImage];
+//
+//    attributeSet.title = shortTitle;
+//    NSRange descRange = {0, MIN([_shot.desc length],300)};
+//    NSString *shortDesc = [_shot.desc substringWithRange:descRange];
+//    attributeSet.contentDescription = shortDesc;
+//    NSURL *url = _shot.image;
+//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    attributeSet.thumbnailData = data;
+//    
+//    self.activity.contentAttributeSet = attributeSet;
+//    [self.activity becomeCurrent];
+//    
+//
+//}
 
 @end

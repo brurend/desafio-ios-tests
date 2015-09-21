@@ -95,7 +95,9 @@ NSString* const placeholder = @"placeholder.png";
     
     ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
     ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
-    cell.shotLabel.text = shot.title;
+    NSRange titleRange = {0, MIN([shot.title length], 30)};
+    NSString *shortTitle = [shot.title substringWithRange:titleRange];
+    cell.shotLabel.text = shortTitle;
     
     [cell.shotImage sd_setImageWithURL:shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];

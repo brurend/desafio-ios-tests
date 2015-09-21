@@ -5,6 +5,7 @@ target 'desafio-ios-tests' do
  pod 'AFNetworking'
  pod 'Mantle'
  pod 'SDWebImage'
+ pod 'StripHTML'
 end
 
 target 'desafio-ios-testsTests' do
