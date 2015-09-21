@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DetailsViewController.h"
+#import <CoreSpotlight/CoreSpotlight.h>
+
 
 @interface AppDelegate ()
 
@@ -41,5 +44,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//-(BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler{
+//    [[CSSearchableIndex defaultSearchableIndex] deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) {
+//        if (error) NSLog(@"%@",error);
+//    }];
+////    [self.window.rootViewController.navigationController.topViewController restoreUserActivityState:userActivity];
+//    
+//    return true;
+//}
 
 @end

@@ -14,6 +14,9 @@
 
 
 @property (strong, nonatomic) ShotModel *shot;
+@property (strong, nonatomic) NSUserActivity *activity;
+
+-(void)search;
 
 @end
 

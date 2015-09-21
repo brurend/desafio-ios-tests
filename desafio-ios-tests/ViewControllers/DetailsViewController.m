@@ -12,6 +12,8 @@
 #import "ShotViewController.h"
 #import <UIImageView+WebCache.h>
 
+#import <CoreSpotlight/CoreSpotlight.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface DetailsViewController ()
 
@@ -29,6 +31,7 @@ static NSString *shotCellIdentifier = @"shotCell";
     self.tableView.estimatedRowHeight = 250.0f;
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.view.frame = CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, self.tableView.frame.size.height);
+//    [self search];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,16 +58,23 @@ static NSString *shotCellIdentifier = @"shotCell";
     cell.shotViewsCount.text = [_shot.views stringValue];
 
     
+    
     if (indexPath.row == 1)
     {
+        NSAttributedString *atr = [[NSAttributedString alloc] initWithData:[_shot.desc dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+        
+        
         DetailsCell *cell = [self.tableView
                              dequeueReusableCellWithIdentifier:detailsCell];
         cell.nameLabel.text = _shot.player.player_name;
-        cell.descLabel.text = _shot.desc;
+        cell.descLabel.text = [atr string];
         cell.avatarImage.clipsToBounds = YES;
         cell.avatarImage.layer.cornerRadius = 20;
         [cell.avatarImage sd_setImageWithURL:_shot.player.player_image
                       placeholderImage:[UIImage imageNamed:placeholder]];
+        
+        NSLog(@"%@",[atr string]);
+        NSLog(@"%@",_shot.desc);
         
         return cell;
     }
@@ -104,6 +114,34 @@ static NSString *shotCellIdentifier = @"shotCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) return 250.0f;
     else return UITableViewAutomaticDimension;
+}
+
+-(void)search{
+    self.activity = [[NSUserActivity alloc] initWithActivityType:@"com.cs.teste"];
+    NSRange titleRange = {0, MIN([_shot.title length], 90)};
+    NSString *shortTitle = [_shot.title substringWithRange:titleRange];
+    self.activity.title = shortTitle;
+//    self.activity.userInfo = @{@"title":_shot.title, @"description":_shot.desc,@"image":_shot.image};
+    NSSet<NSString *> *set = [[NSSet alloc] initWithArray:@[@"dribble",@"shots",@"design",@"designers"]];
+    self.activity.keywords = set;
+    self.activity.eligibleForSearch = true;
+    
+    
+    CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString*)kUTTypeImage];
+
+    attributeSet.title = shortTitle;
+    NSRange descRange = {0, MIN([_shot.desc length],300)};
+    NSString *shortDesc = [_shot.desc substringWithRange:descRange];
+    attributeSet.contentDescription = shortDesc;
+    NSURL *url = _shot.image;
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    NSData *data = UIImagePNGRepresentation(image);
+    attributeSet.thumbnailData = data;
+    
+    self.activity.contentAttributeSet = attributeSet;
+    [self.activity becomeCurrent];
+    
+
 }
 
 @end

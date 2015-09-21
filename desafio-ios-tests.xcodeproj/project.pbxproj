@@ -30,6 +30,8 @@
 		95BA68C71B9A15A7000E0EAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C61B9A15A7000E0EAC /* Images.xcassets */; };
 		95BA68CA1B9A15A7000E0EAC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C81B9A15A7000E0EAC /* LaunchScreen.xib */; };
 		95BA68D61B9A15A7000E0EAC /* desafio_ios_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */; };
+		95FDD3F41BAB3E7500D21264 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FDD3F31BAB3E7500D21264 /* CoreSpotlight.framework */; };
+		95FDD3F61BAB3E7D00D21264 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FDD3F51BAB3E7D00D21264 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		95BA68CF1B9A15A7000E0EAC /* desafio-ios-testsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-testsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68D41B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = desafio_ios_testsTests.m; sourceTree = "<group>"; };
+		95FDD3F31BAB3E7500D21264 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		95FDD3F51BAB3E7D00D21264 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A714414A7E823B14E45DE586 /* libPods-desafio-ios-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-desafio-ios-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FCC9FC507856AE4E934500 /* Pods-desafio-ios-testsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-ios-testsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-desafio-ios-testsTests/Pods-desafio-ios-testsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FDD3F61BAB3E7D00D21264 /* MobileCoreServices.framework in Frameworks */,
+				95FDD3F41BAB3E7500D21264 /* CoreSpotlight.framework in Frameworks */,
 				81E51FAB1115183BCC52D0AB /* libPods-desafio-ios-tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +114,8 @@
 		8652DF9F993DC05FDB34009A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95FDD3F51BAB3E7D00D21264 /* MobileCoreServices.framework */,
+				95FDD3F31BAB3E7500D21264 /* CoreSpotlight.framework */,
 				A714414A7E823B14E45DE586 /* libPods-desafio-ios-tests.a */,
 				0B29D255F761B22FC1B558B2 /* libPods-desafio-ios-testsTests.a */,
 			);
@@ -296,7 +304,7 @@
 		95BA68AE1B9A15A7000E0EAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Bruno Rendeiro";
 				TargetAttributes = {
 					95BA68B51B9A15A7000E0EAC = {
@@ -494,6 +502,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -564,6 +573,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.cs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -578,6 +588,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "br.cs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -598,6 +609,7 @@
 				);
 				INFOPLIST_FILE = "desafio-ios-testsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.cs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-tests.app/desafio-ios-tests";
 			};
@@ -614,6 +626,7 @@
 				);
 				INFOPLIST_FILE = "desafio-ios-testsTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.cs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/desafio-ios-tests.app/desafio-ios-tests";
 			};

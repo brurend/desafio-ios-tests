@@ -23,7 +23,6 @@ NSString* const placeholder = @"placeholder.png";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.estimatedRowHeight = 250;
@@ -63,7 +62,7 @@ NSString* const placeholder = @"placeholder.png";
 
     [self.refreshControl beginRefreshing];
     
-    NSString *json = @"http://api.dribbble.com/shots/popular";
+    NSString *json = @"https://api.dribbble.com/shots/popular";
     
     NSDictionary *parameters = @{@"page": [@(page) stringValue]};
     
@@ -73,6 +72,7 @@ NSString* const placeholder = @"placeholder.png";
     } failure:^(NSError *erro) {
         NSLog(@"%@",erro);
     }];
+
     
     [self.refreshControl endRefreshing];
 }
@@ -125,6 +125,18 @@ NSString* const placeholder = @"placeholder.png";
 }
 
 
+//-(void)restoreUserActivityState:(NSUserActivity *)activity{
+//    if ([[activity.userInfo objectForKey:@"title"] isKindOfClass:[NSString class]] &&
+//        [[activity.userInfo objectForKey:@"description"] isKindOfClass:[NSString class]] &&
+//        [[activity.userInfo objectForKey:@"image"] isKindOfClass:[NSURL class]]){
+//        DetailsViewController *dvc = [[DetailsViewController alloc] init];
+//        dvc.shot.title = [activity.userInfo objectForKey:@"title"];
+//        dvc.shot.desc = [activity.userInfo objectForKey:@"description"];
+//        dvc.shot.image = [activity.userInfo objectForKey:@"image"];
+//        [dvc search];
+//        [self.navigationController pushViewController:dvc animated:YES];
+//    }
+//}
 
 
 
