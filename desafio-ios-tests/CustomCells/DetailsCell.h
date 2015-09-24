@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ShotModel;
+
 @interface DetailsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
+
+-(void)configurePlayerCell:(ShotModel*)shot;
 
 @end

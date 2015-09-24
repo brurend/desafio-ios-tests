@@ -28,7 +28,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - Specta (1.0.3)
+  - Specta (1.0.4)
   - StripHTML (0.1.1)
   - TLJsonFactory (0.1.0)
 
@@ -48,7 +48,7 @@ SPEC CHECKSUMS:
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
+  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
   StripHTML: 605c5edb678022c6183fff7ebed56db01219a62d
   TLJsonFactory: 3aeb73712e192997f76a11b75bc7600cdb4f5b75
 

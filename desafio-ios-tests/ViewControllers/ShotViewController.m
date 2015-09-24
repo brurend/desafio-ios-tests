@@ -18,7 +18,7 @@
 @end
 
 @implementation ShotViewController
-NSString* const placeholder = @"placeholder.png";
+//static NSString* const shotCellIdentifier = @"shotCell";
 
 
 - (void)viewDidLoad {
@@ -28,7 +28,6 @@ NSString* const placeholder = @"placeholder.png";
     self.tableView.estimatedRowHeight = 250;
     self.navigationItem.title = @"Shots view";
     
-    _manager = [AFHTTPRequestOperationManager manager];
     _posts = [[NSMutableArray alloc] init];
     [self refreshView];
     _pageCount = 1;
@@ -91,17 +90,18 @@ NSString* const placeholder = @"placeholder.png";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *shotCellIdentifier = @"shotCell";
-    
-    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+//    static NSString *shotCellIdentifier = @"shotCell";
     ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
-    NSRange titleRange = {0, MIN([shot.title length], 30)};
-    NSString *shortTitle = [shot.title substringWithRange:titleRange];
-    cell.shotLabel.text = shortTitle;
+    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
+//    NSRange titleRange = {0, MIN([shot.title length], 30)};
+//    NSString *shortTitle = [shot.title substringWithRange:titleRange];
+//    cell.shotLabel.text = shortTitle;
+//    
+//    [cell.shotImage sd_setImageWithURL:shot.image
+//                      placeholderImage:[UIImage imageNamed:placeholder]];
+//    cell.shotViewsCount.text = [shot.views stringValue];
+    [cell configureCellforShot:shot];
     
-    [cell.shotImage sd_setImageWithURL:shot.image
-                      placeholderImage:[UIImage imageNamed:placeholder]];
-    cell.shotViewsCount.text = [shot.views stringValue];
     
     
     return cell;

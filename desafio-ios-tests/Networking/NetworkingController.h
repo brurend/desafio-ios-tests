@@ -16,8 +16,7 @@ typedef void (^FetchShot)(NSArray * shot);
 typedef void (^FetchShotFailure)(NSError *erro);
 
 
-
-@interface NetworkingController : NSObject
+@interface NetworkingController : NSObject 
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 @property (strong, nonatomic) NSArray *shots;

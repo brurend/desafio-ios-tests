@@ -11,7 +11,6 @@
 
 
 @interface ShotViewController : UITableViewController
-extern NSString* const placeholder;
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 @property NSMutableArray *posts;

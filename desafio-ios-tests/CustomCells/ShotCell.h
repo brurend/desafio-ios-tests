@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class ShotModel;
+
 @interface ShotCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet UILabel *shotLabel;
 @property (weak, nonatomic) IBOutlet UIView *shotView;
 @property (weak, nonatomic) IBOutlet UILabel *shotViewsCount;
+
+-(void)configureCellforShot:(ShotModel*)shot;
+
 
 @end

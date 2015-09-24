@@ -23,6 +23,8 @@
 		950ED8941BA0CA8400A4AF98 /* dribble.json in Resources */ = {isa = PBXBuildFile; fileRef = 950ED8931BA0CA8400A4AF98 /* dribble.json */; };
 		950ED8961BA0DA4100A4AF98 /* DetailsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */; };
 		950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8981BA3546400A4AF98 /* BaseMantle.m */; };
+		952B04651BB1E22400965E33 /* ShotTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 952B04641BB1E22400965E33 /* ShotTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		952B04681BB1E70B00965E33 /* ShotViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 952B04671BB1E70B00965E33 /* ShotViewController2.m */; settings = {ASSET_TAGS = (); }; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
@@ -30,6 +32,9 @@
 		95BA68C71B9A15A7000E0EAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C61B9A15A7000E0EAC /* Images.xcassets */; };
 		95BA68CA1B9A15A7000E0EAC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C81B9A15A7000E0EAC /* LaunchScreen.xib */; };
 		95BA68D61B9A15A7000E0EAC /* desafio_ios_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */; };
+		95D478271BB4872D00BF8400 /* DetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D478261BB4872D00BF8400 /* DetailTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
+		95D4784D1BB4914200BF8400 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4784C1BB4914200BF8400 /* DetailCell.m */; settings = {ASSET_TAGS = (); }; };
+		95D478501BB4938500BF8400 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4784F1BB4938500BF8400 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		95FDD3F41BAB3E7500D21264 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FDD3F31BAB3E7500D21264 /* CoreSpotlight.framework */; };
 		95FDD3F61BAB3E7D00D21264 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FDD3F51BAB3E7D00D21264 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +75,10 @@
 		950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewControllerTests.m; sourceTree = "<group>"; };
 		950ED8971BA3546400A4AF98 /* BaseMantle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMantle.h; sourceTree = "<group>"; };
 		950ED8981BA3546400A4AF98 /* BaseMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMantle.m; sourceTree = "<group>"; };
+		952B04631BB1E22400965E33 /* ShotTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotTableViewDataSource.h; sourceTree = "<group>"; };
+		952B04641BB1E22400965E33 /* ShotTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotTableViewDataSource.m; sourceTree = "<group>"; };
+		952B04661BB1E70B00965E33 /* ShotViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController2.h; sourceTree = "<group>"; };
+		952B04671BB1E70B00965E33 /* ShotViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController2.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +92,12 @@
 		95BA68CF1B9A15A7000E0EAC /* desafio-ios-testsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "desafio-ios-testsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68D41B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = desafio_ios_testsTests.m; sourceTree = "<group>"; };
+		95D478251BB4872D00BF8400 /* DetailTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewDataSource.h; sourceTree = "<group>"; };
+		95D478261BB4872D00BF8400 /* DetailTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewDataSource.m; sourceTree = "<group>"; };
+		95D4784B1BB4914200BF8400 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		95D4784C1BB4914200BF8400 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		95D4784E1BB4938500BF8400 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		95D4784F1BB4938500BF8400 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		95FDD3F31BAB3E7500D21264 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		95FDD3F51BAB3E7D00D21264 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A714414A7E823B14E45DE586 /* libPods-desafio-ios-tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-desafio-ios-tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +144,8 @@
 				950ED8831B9A378500A4AF98 /* ShotCell.m */,
 				950ED88B1BA0B20A00A4AF98 /* DetailsCell.h */,
 				950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */,
+				95D4784B1BB4914200BF8400 /* DetailCell.h */,
+				95D4784C1BB4914200BF8400 /* DetailCell.m */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -152,6 +169,17 @@
 			name = mocks;
 			sourceTree = "<group>";
 		};
+		952B045E1BB1E0BF00965E33 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				952B04631BB1E22400965E33 /* ShotTableViewDataSource.h */,
+				952B04641BB1E22400965E33 /* ShotTableViewDataSource.m */,
+				95D478251BB4872D00BF8400 /* DetailTableViewDataSource.h */,
+				95D478261BB4872D00BF8400 /* DetailTableViewDataSource.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		954B0C9A1B9A1F4D00FC30FB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +187,10 @@
 				95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */,
 				950ED8781B9A2A1200A4AF98 /* ShotViewController.h */,
 				950ED8791B9A2A1200A4AF98 /* ShotViewController.m */,
+				952B04661BB1E70B00965E33 /* ShotViewController2.h */,
+				952B04671BB1E70B00965E33 /* ShotViewController2.m */,
+				95D4784E1BB4938500BF8400 /* DetailViewController.h */,
+				95D4784F1BB4938500BF8400 /* DetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +230,7 @@
 		95BA68B81B9A15A7000E0EAC /* desafio-ios-tests */ = {
 			isa = PBXGroup;
 			children = (
+				952B045E1BB1E0BF00965E33 /* Delegate */,
 				950ED88A1B9F680400A4AF98 /* Networking */,
 				950ED8811B9A375C00A4AF98 /* CustomCells */,
 				954B0C9B1B9A1F5600FC30FB /* Model */,
@@ -429,12 +462,17 @@
 				950ED8701B9A22D900A4AF98 /* ShotPlayerModel.m in Sources */,
 				950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */,
 				95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */,
+				952B04681BB1E70B00965E33 /* ShotViewController2.m in Sources */,
+				95D478271BB4872D00BF8400 /* DetailTableViewDataSource.m in Sources */,
+				95D478501BB4938500BF8400 /* DetailViewController.m in Sources */,
 				950ED86D1B9A1FE900A4AF98 /* ShotModel.m in Sources */,
 				950ED8841B9A378500A4AF98 /* ShotCell.m in Sources */,
+				952B04651BB1E22400965E33 /* ShotTableViewDataSource.m in Sources */,
 				95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */,
 				950ED8891B9F569C00A4AF98 /* NetworkingController.m in Sources */,
 				950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */,
 				95BA68BC1B9A15A7000E0EAC /* main.m in Sources */,
+				95D4784D1BB4914200BF8400 /* DetailCell.m in Sources */,
 				950ED88D1BA0B20A00A4AF98 /* DetailsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

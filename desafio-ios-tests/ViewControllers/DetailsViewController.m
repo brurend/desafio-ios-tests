@@ -24,7 +24,6 @@
 @implementation DetailsViewController
 
 static NSString *detailsCell = @"detailsCell";
-static NSString *shotCellIdentifier = @"shotCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,8 +55,8 @@ static NSString *shotCellIdentifier = @"shotCell";
     NSRange titleRange = {0, MIN([_shot.title length], 30)};
     NSString *shortTitle = [_shot.title substringWithRange:titleRange];
     cell.shotLabel.text = shortTitle;
-    [cell.shotImage sd_setImageWithURL:_shot.image
-                      placeholderImage:[UIImage imageNamed:placeholder]];
+//    [cell.shotImage sd_setImageWithURL:_shot.image
+//                      placeholderImage:[UIImage imageNamed:placeholder]];
     cell.shotViewsCount.text = [_shot.views stringValue];
 
     
@@ -70,8 +69,8 @@ static NSString *shotCellIdentifier = @"shotCell";
         cell.descLabel.text = [_shot.desc removeTags];
         cell.avatarImage.clipsToBounds = YES;
         cell.avatarImage.layer.cornerRadius = 20;
-        [cell.avatarImage sd_setImageWithURL:_shot.player.player_image
-                      placeholderImage:[UIImage imageNamed:placeholder]];
+//        [cell.avatarImage sd_setImageWithURL:_shot.player.player_image
+//                      placeholderImage:[UIImage imageNamed:placeholder]];
         
         return cell;
     }
@@ -84,11 +83,11 @@ static NSString *shotCellIdentifier = @"shotCell";
     
     NSString *title = _shot.title;
     if ([title length] == 0) title = @"";
-    NSString *desc = _shot.description;
+    NSString *desc = _shot.desc;
     if ([desc length] == 0) desc = @"";
     NSURL *url = _shot.image;
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    if (image == nil) image = [UIImage imageNamed:placeholder];
+//    if (image == nil) image = [UIImage imageNamed:placeholder];
     NSArray *activityItems = @[title,desc,image];
     NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
     
