@@ -13,6 +13,7 @@
 
 
 @implementation DetailCell
+
 NSString* const detailCellIdentifier = @"detailCell";
 
 -(void)configureCellforShot:(ShotModel *)shot{

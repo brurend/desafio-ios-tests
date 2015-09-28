@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailsViewController.h"
 #import <CoreSpotlight/CoreSpotlight.h>
 
 

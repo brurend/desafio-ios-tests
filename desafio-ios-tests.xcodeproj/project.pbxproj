@@ -13,21 +13,18 @@
 		950ED8701B9A22D900A4AF98 /* ShotPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED86F1B9A22D900A4AF98 /* ShotPlayerModel.m */; };
 		950ED8721B9A242900A4AF98 /* ShotModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8711B9A242900A4AF98 /* ShotModelTests.m */; };
 		950ED8771B9A278D00A4AF98 /* ShotPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8761B9A278D00A4AF98 /* ShotPlayerTests.m */; };
-		950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8791B9A2A1200A4AF98 /* ShotViewController.m */; };
 		950ED8801B9A2FB200A4AF98 /* ShotViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */; };
 		950ED8841B9A378500A4AF98 /* ShotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8831B9A378500A4AF98 /* ShotCell.m */; };
 		950ED8891B9F569C00A4AF98 /* NetworkingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8881B9F569C00A4AF98 /* NetworkingController.m */; };
-		950ED88D1BA0B20A00A4AF98 /* DetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */; };
 		950ED8901BA0C64E00A4AF98 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 950ED88E1BA0C64E00A4AF98 /* placeholder.png */; };
 		950ED8911BA0C64E00A4AF98 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 950ED88F1BA0C64E00A4AF98 /* placeholder@2x.png */; };
 		950ED8941BA0CA8400A4AF98 /* dribble.json in Resources */ = {isa = PBXBuildFile; fileRef = 950ED8931BA0CA8400A4AF98 /* dribble.json */; };
 		950ED8961BA0DA4100A4AF98 /* DetailsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8951BA0DA4100A4AF98 /* DetailsViewControllerTests.m */; };
 		950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 950ED8981BA3546400A4AF98 /* BaseMantle.m */; };
 		952B04651BB1E22400965E33 /* ShotTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 952B04641BB1E22400965E33 /* ShotTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
-		952B04681BB1E70B00965E33 /* ShotViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 952B04671BB1E70B00965E33 /* ShotViewController2.m */; settings = {ASSET_TAGS = (); }; };
+		952B04681BB1E70B00965E33 /* ShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952B04671BB1E70B00965E33 /* ShotViewController.m */; settings = {ASSET_TAGS = (); }; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
-		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
 		95BA68C51B9A15A7000E0EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C31B9A15A7000E0EAC /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		95BA68C71B9A15A7000E0EAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C61B9A15A7000E0EAC /* Images.xcassets */; };
 		95BA68CA1B9A15A7000E0EAC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C81B9A15A7000E0EAC /* LaunchScreen.xib */; };
@@ -60,15 +57,11 @@
 		950ED86F1B9A22D900A4AF98 /* ShotPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotPlayerModel.m; path = ../model/ShotPlayerModel.m; sourceTree = "<group>"; };
 		950ED8711B9A242900A4AF98 /* ShotModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotModelTests.m; sourceTree = "<group>"; };
 		950ED8761B9A278D00A4AF98 /* ShotPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotPlayerTests.m; sourceTree = "<group>"; };
-		950ED8781B9A2A1200A4AF98 /* ShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController.h; sourceTree = "<group>"; };
-		950ED8791B9A2A1200A4AF98 /* ShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController.m; sourceTree = "<group>"; };
 		950ED87F1B9A2FB200A4AF98 /* ShotViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewControllerTests.m; sourceTree = "<group>"; };
 		950ED8821B9A378500A4AF98 /* ShotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotCell.h; path = ../CustomCells/ShotCell.h; sourceTree = "<group>"; };
 		950ED8831B9A378500A4AF98 /* ShotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotCell.m; path = ../CustomCells/ShotCell.m; sourceTree = "<group>"; };
 		950ED8871B9F569C00A4AF98 /* NetworkingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingController.h; sourceTree = "<group>"; };
 		950ED8881B9F569C00A4AF98 /* NetworkingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingController.m; sourceTree = "<group>"; };
-		950ED88B1BA0B20A00A4AF98 /* DetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsCell.h; path = "desafio-ios-tests/CustomCells/DetailsCell.h"; sourceTree = SOURCE_ROOT; };
-		950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailsCell.m; path = "desafio-ios-tests/CustomCells/DetailsCell.m"; sourceTree = SOURCE_ROOT; };
 		950ED88E1BA0C64E00A4AF98 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		950ED88F1BA0C64E00A4AF98 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		950ED8931BA0CA8400A4AF98 /* dribble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dribble.json; sourceTree = "<group>"; };
@@ -77,15 +70,13 @@
 		950ED8981BA3546400A4AF98 /* BaseMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMantle.m; sourceTree = "<group>"; };
 		952B04631BB1E22400965E33 /* ShotTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotTableViewDataSource.h; sourceTree = "<group>"; };
 		952B04641BB1E22400965E33 /* ShotTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotTableViewDataSource.m; sourceTree = "<group>"; };
-		952B04661BB1E70B00965E33 /* ShotViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController2.h; sourceTree = "<group>"; };
-		952B04671BB1E70B00965E33 /* ShotViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController2.m; sourceTree = "<group>"; };
+		952B04661BB1E70B00965E33 /* ShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController.h; sourceTree = "<group>"; };
+		952B04671BB1E70B00965E33 /* ShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95BA68BD1B9A15A7000E0EAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		95BA68C01B9A15A7000E0EAC /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		95BA68C41B9A15A7000E0EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95BA68C61B9A15A7000E0EAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95BA68C91B9A15A7000E0EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -142,8 +133,6 @@
 			children = (
 				950ED8821B9A378500A4AF98 /* ShotCell.h */,
 				950ED8831B9A378500A4AF98 /* ShotCell.m */,
-				950ED88B1BA0B20A00A4AF98 /* DetailsCell.h */,
-				950ED88C1BA0B20A00A4AF98 /* DetailsCell.m */,
 				95D4784B1BB4914200BF8400 /* DetailCell.h */,
 				95D4784C1BB4914200BF8400 /* DetailCell.m */,
 			);
@@ -183,12 +172,8 @@
 		954B0C9A1B9A1F4D00FC30FB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				95BA68C01B9A15A7000E0EAC /* DetailsViewController.h */,
-				95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */,
-				950ED8781B9A2A1200A4AF98 /* ShotViewController.h */,
-				950ED8791B9A2A1200A4AF98 /* ShotViewController.m */,
-				952B04661BB1E70B00965E33 /* ShotViewController2.h */,
-				952B04671BB1E70B00965E33 /* ShotViewController2.m */,
+				952B04661BB1E70B00965E33 /* ShotViewController.h */,
+				952B04671BB1E70B00965E33 /* ShotViewController.m */,
 				95D4784E1BB4938500BF8400 /* DetailViewController.h */,
 				95D4784F1BB4938500BF8400 /* DetailViewController.m */,
 			);
@@ -464,8 +449,7 @@
 			files = (
 				950ED8701B9A22D900A4AF98 /* ShotPlayerModel.m in Sources */,
 				950ED8991BA3546400A4AF98 /* BaseMantle.m in Sources */,
-				95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */,
-				952B04681BB1E70B00965E33 /* ShotViewController2.m in Sources */,
+				952B04681BB1E70B00965E33 /* ShotViewController.m in Sources */,
 				95D478271BB4872D00BF8400 /* DetailTableViewDataSource.m in Sources */,
 				95D478501BB4938500BF8400 /* DetailViewController.m in Sources */,
 				950ED86D1B9A1FE900A4AF98 /* ShotModel.m in Sources */,
@@ -473,10 +457,8 @@
 				952B04651BB1E22400965E33 /* ShotTableViewDataSource.m in Sources */,
 				95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */,
 				950ED8891B9F569C00A4AF98 /* NetworkingController.m in Sources */,
-				950ED87A1B9A2A1200A4AF98 /* ShotViewController.m in Sources */,
 				95BA68BC1B9A15A7000E0EAC /* main.m in Sources */,
 				95D4784D1BB4914200BF8400 /* DetailCell.m in Sources */,
-				950ED88D1BA0B20A00A4AF98 /* DetailsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

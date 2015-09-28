@@ -35,13 +35,4 @@ NSString* const shotCellIdentifier = @"shotCell";
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:[ShotPlayerModel class]];
 }
 
-
-//+(NSArray*)parseArray:(NSArray*)json{
-//    return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:json error:nil];
-//}
-
-//+(instancetype)parse:(NSDictionary*)json{
-//    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:json error:nil];
-//}
-
 @end

@@ -21,7 +21,4 @@
 extern NSString* const placeholder;
 extern NSString* const shotCellIdentifier;
 
-//+(NSArray*)parseArray:(NSArray*)json;
-//+(instancetype)parse:(NSDictionary*)json;
-
 @end

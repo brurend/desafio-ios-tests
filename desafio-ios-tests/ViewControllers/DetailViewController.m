@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 #import "ShotModel.h"
+#import "NSString+StripHTML.h"
+
 
 @interface DetailViewController ()
 
@@ -39,7 +41,7 @@
     
     NSString *title = self.shot.title;
     if ([title length] == 0) title = @"";
-    NSString *desc = self.shot.desc;
+    NSString *desc = [self.shot.desc removeTags];
     if ([desc length] == 0) desc = @"";
     NSURL *url = self.shot.image;
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];

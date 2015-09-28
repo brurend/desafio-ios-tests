@@ -12,18 +12,6 @@
 
 @implementation ShotCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-//NSString* const placeholder = @"placeholder.png";
-
 -(void)configureCellforShot:(ShotModel *)shot{
     NSRange titleRange = {0, MIN([shot.title length], 30)};
     NSString *shortTitle = [shot.title substringWithRange:titleRange];

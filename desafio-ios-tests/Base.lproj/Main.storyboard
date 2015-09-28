@@ -6,10 +6,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Shot View Controller2-->
+        <!--Shot View Controller-->
         <scene sceneID="KMy-G1-S8X">
             <objects>
-                <viewController id="lzp-on-SPA" customClass="ShotViewController2" sceneMemberID="viewController">
+                <viewController id="lzp-on-SPA" customClass="ShotViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGd-bv-rEs"/>
                         <viewControllerLayoutGuide type="bottom" id="0bp-ju-bn9"/>
@@ -488,9 +488,16 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Gmr-2J-d46"/>
+                    <navigationItem key="navigationItem" id="Gmr-2J-d46">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Sa2-0a-LQh">
+                            <connections>
+                                <action selector="share:" destination="lzp-on-SPA" id="dk3-v3-4Nw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailTable" destination="eCv-sG-yRt" id="ecF-8I-Dc9"/>
+                        <outlet property="shareButton" destination="Sa2-0a-LQh" id="2mP-IW-zM9"/>
                         <outlet property="shotTable" destination="dJE-1y-lyM" id="w4J-u0-dyU"/>
                     </connections>
                 </viewController>
@@ -498,7 +505,7 @@
             </objects>
             <point key="canvasLocation" x="571" y="1164"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Title-->
         <scene sceneID="oTs-LL-nH4">
             <objects>
                 <viewController id="4Pp-KI-UuH" customClass="DetailViewController" sceneMemberID="viewController">
@@ -511,7 +518,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="aK7-Av-DK7">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="1000" id="zFo-10-EH6" customClass="DetailCell">
@@ -566,7 +573,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77E-cK-CU3">
-                                                    <rect key="frame" x="20" y="325.5" width="560" height="654"/>
+                                                    <rect key="frame" x="20" y="325" width="560" height="654.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -618,13 +625,22 @@
                             <constraint firstAttribute="trailing" secondItem="aK7-Av-DK7" secondAttribute="trailing" id="zUD-oc-vw3"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Drg-OU-oiE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SFT-x2-mae">
+                            <connections>
+                                <action selector="shareButton:" destination="4Pp-KI-UuH" id="nG4-pd-iF3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="aK7-Av-DK7" id="znr-kX-Kcc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHu-Nm-MCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368" y="1164"/>
+            <point key="canvasLocation" x="1444" y="1164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JX0-TF-AjQ">

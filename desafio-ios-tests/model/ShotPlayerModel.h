@@ -14,6 +14,4 @@
 @property (strong, nonatomic) NSString *player_name;
 @property (strong, nonatomic) NSURL *player_image;
 
-
-
 @end

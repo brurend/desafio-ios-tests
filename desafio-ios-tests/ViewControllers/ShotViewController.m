@@ -1,64 +1,67 @@
 //
-//  ShotViewController.m
+//  ShotViewController2.m
 //  desafio-ios-tests
 //
-//  Created by Bruno Rendeiro on 9/4/15.
-//  Copyright (c) 2015 Bruno Rendeiro. All rights reserved.
-
+//  Created by Bruno Rendeiro on 9/22/15.
+//  Copyright © 2015 Bruno Rendeiro. All rights reserved.
+//
 
 #import "ShotViewController.h"
 #import "ShotModel.h"
-#import "NetworkingController.h"
 #import "ShotCell.h"
-#import <UIImageView+WebCache.h>
-#import "DetailsViewController.h"
+#import "NetworkingController.h"
+#import "DetailTableViewDataSource.h"
+#import "DetailViewController.h"
+#import "NSString+StripHTML.h"
+
 
 @interface ShotViewController ()
+
+@property (strong, nonatomic) ShotTableViewDataSource* tableViewDataSource;
+@property (strong, nonatomic) DetailTableViewDataSource* detailDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *detailTable;
+@property (weak, nonatomic) IBOutlet UITableView *shotTable;
+@property (strong, nonatomic) NSMutableArray *posts;
+@property int pageCount;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) ShotModel *shot;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @end
 
 @implementation ShotViewController
-//static NSString* const shotCellIdentifier = @"shotCell";
 
-
-- (void)viewDidLoad {
+-(void)viewDidLoad{
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 250;
+    self.detailTable.estimatedRowHeight = 500.0f;
     self.navigationItem.title = @"Shots view";
     
-    _posts = [[NSMutableArray alloc] init];
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    self.posts = [[NSMutableArray alloc] init];
     [self refreshView];
-    _pageCount = 1;
-    [self loadPosts:_pageCount];
-
+    self.pageCount = 1;
+    
+    [self setUpTableView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+-(void)setUpTableView{
+    
+    self.tableViewDataSource = [[ShotTableViewDataSource alloc] initWithItems:self.posts];
+    self.shotTable.dataSource = self.tableViewDataSource;
+    self.shotTable.delegate = self;
+    [self loadPosts:self.pageCount];
 }
 
-#pragma mark - Metodos do pull to refresh
-//Prepara o Pull to refresh
--(void)refreshView
-{
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+-(void)setUpDetailView:(ShotModel*)shot{
+    self.detailDataSource = [[DetailTableViewDataSource alloc] initWithShot:shot];
+    self.detailTable.dataSource = self.detailDataSource;
+    self.detailTable.delegate = self;
 }
 
-//Executa o Pull to refresh
--(void)refreshAction
-{
-    [self.posts removeAllObjects];
-    _pageCount = 1;
-    [self loadPosts:_pageCount];
-}
-
-#pragma mark - Métodos para popular o array
 -(void) loadPosts:(int)page{
-
     [self.refreshControl beginRefreshing];
     
     NSString *json = @"https://api.dribbble.com/shots/popular";
@@ -67,79 +70,97 @@
     
     [[NetworkingController sharedInstance]getShot:json parameters:parameters success:^(NSArray *shot) {
         [self.posts addObjectsFromArray:shot];
-        [self.tableView reloadData];
+        [self.shotTable reloadData];
+        if(self.shot == nil){
+            self.shot = [shot objectAtIndex:0];
+            [self setUpDetailView:self.shot];
+            [self.detailTable reloadData];
+        }
     } failure:^(NSError *erro) {
         NSLog(@"%@",erro);
     }];
-
     
     [self.refreshControl endRefreshing];
 }
 
-#pragma mark - Métodos da tabela
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [self.posts count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    static NSString *shotCellIdentifier = @"shotCell";
-    ShotModel *shot = [_posts objectAtIndex:[indexPath row]];
-    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
-//    NSRange titleRange = {0, MIN([shot.title length], 30)};
-//    NSString *shortTitle = [shot.title substringWithRange:titleRange];
-//    cell.shotLabel.text = shortTitle;
-//    
-//    [cell.shotImage sd_setImageWithURL:shot.image
-//                      placeholderImage:[UIImage imageNamed:placeholder]];
-//    cell.shotViewsCount.text = [shot.views stringValue];
-    [cell configureCellforShot:shot];
-    
-    
-    
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Metodos do pull to refresh
+//Prepara o Pull to refresh
+-(void)refreshView
 {
-    if (indexPath.row == [self.posts count]-3 && self.pageCount <= 50){
-        [self loadPosts:self.pageCount++];
-    }
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
+    [self.shotTable addSubview:self.refreshControl];
 }
 
+//Executa o Pull to refresh
+-(void)refreshAction
+{
+    [self.posts removeAllObjects];
+    self.pageCount = 1;
+    [self loadPosts:self.pageCount];
+}
 
 #pragma mark - Metodos de transição
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetailsViewController *dvc = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.shotTable indexPathForSelectedRow];
+        DetailViewController *dvc = segue.destinationViewController;
         dvc.shot = [self.posts objectAtIndex:indexPath.row];
     }
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        return NO;
+    }
+    else
+        return YES;
+}
 
-//-(void)restoreUserActivityState:(NSUserActivity *)activity{
-//    if ([[activity.userInfo objectForKey:@"title"] isKindOfClass:[NSString class]] &&
-//        [[activity.userInfo objectForKey:@"description"] isKindOfClass:[NSString class]] &&
-//        [[activity.userInfo objectForKey:@"image"] isKindOfClass:[NSURL class]]){
-//        DetailsViewController *dvc = [[DetailsViewController alloc] init];
-//        dvc.shot.title = [activity.userInfo objectForKey:@"title"];
-//        dvc.shot.desc = [activity.userInfo objectForKey:@"description"];
-//        dvc.shot.image = [activity.userInfo objectForKey:@"image"];
-//        [dvc search];
-//        [self.navigationController pushViewController:dvc animated:YES];
-//    }
-//}
+#pragma mark UITableViewDelegateMethods
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [self.posts count]-3 && self.pageCount <= 50 && tableView.tag == 1){
+        [self loadPosts:self.pageCount++];
+    }
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([tableView isEqual:self.shotTable]) return 250.0f;
+    else return UITableViewAutomaticDimension;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag == 1 && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        self.shot = [self.posts objectAtIndex:indexPath.row];
+        [self setUpDetailView:self.shot];
+        [self.detailTable reloadData];
+    }
+}
+
+
+- (IBAction)share:(id)sender {
+    NSString *title = self.shot.title;
+    if ([title length] == 0) title = @"";
+    NSString *desc = [self.shot.desc removeTags];
+    if ([desc length] == 0) desc = @"";
+    NSURL *url = self.shot.image;
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    if (image == nil) image = [UIImage imageNamed:placeholder];
+    NSArray *activityItems = @[title,desc,image];
+    NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
+    
+    UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:Items applicationActivities:nil];
+    
+    NSArray *exclude = @[UIActivityTypeAddToReadingList,UIActivityTypeAirDrop,UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFlickr,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll];
+    
+    share.excludedActivityTypes = exclude;
+
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:share];
+        [popup presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+}
 
 
 @end

@@ -1,19 +1,14 @@
 //
-//  ShotViewController.h
+//  ShotViewController2.h
 //  desafio-ios-tests
 //
-//  Created by Bruno Rendeiro on 9/4/15.
-//  Copyright (c) 2015 Bruno Rendeiro. All rights reserved.
+//  Created by Bruno Rendeiro on 9/22/15.
+//  Copyright © 2015 Bruno Rendeiro. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "AFNetworking.h"
+#import "ShotTableViewDataSource.h"
 
-
-@interface ShotViewController : UITableViewController
-
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
-@property NSMutableArray *posts;
-@property int pageCount;
+@interface ShotViewController : UIViewController <ShotTableViewDataSource, UITableViewDelegate>
 
 @end
