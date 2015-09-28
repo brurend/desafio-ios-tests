@@ -11,8 +11,8 @@
 
 @interface DetailViewController ()
 
-@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) DetailTableViewDataSource *detailDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -21,17 +21,17 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.tableView.estimatedRowHeight = 250;
+    self.tableView.estimatedRowHeight = 500.0f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.navigationItem.title = @"Shots view";
     
-
+    [self setUpTableView];
 }
 
 -(void)setUpTableView{
     
     self.detailDataSource = [[DetailTableViewDataSource alloc] initWithShot:self.shot];
     self.tableView.dataSource = self.detailDataSource;
-    self.tableView.delegate = self.detailDataSource;
 }
 
 #pragma mark - Metodos botoes navBar
@@ -41,7 +41,7 @@
     if ([title length] == 0) title = @"";
     NSString *desc = self.shot.desc;
     if ([desc length] == 0) desc = @"";
-    NSURL *url = _shot.image;
+    NSURL *url = self.shot.image;
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     if (image == nil) image = [UIImage imageNamed:placeholder];
     NSArray *activityItems = @[title,desc,image];

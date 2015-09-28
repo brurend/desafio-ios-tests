@@ -10,18 +10,23 @@
 #import "ShotModel.h"
 #import "ShotCell.h"
 #import "NetworkingController.h"
-#import "DetailsViewController.h"
+#import "DetailTableViewDataSource.h"
+#import "DetailViewController.h"
 
 #import "DetailsCell.h"
 
 @interface ShotViewController2 ()
 
 @property (strong, nonatomic) ShotTableViewDataSource* tableViewDataSource;
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) DetailTableViewDataSource* detailDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *detailTable;
+
+@property (weak, nonatomic) IBOutlet UITableView *shotTable;
+//@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property int pageCount;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-
+@property (strong, nonatomic) ShotModel *shot;
 
 @end
 
@@ -29,21 +34,28 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.tableView.estimatedRowHeight = 250;
+    self.detailTable.estimatedRowHeight = 500.0f;
     self.navigationItem.title = @"Shots view";
     
     self.posts = [[NSMutableArray alloc] init];
     [self refreshView];
     self.pageCount = 1;
-    [self loadPosts:self.pageCount];
+    
+    [self setUpTableView];
 }
 
 -(void)setUpTableView{
     
     self.tableViewDataSource = [[ShotTableViewDataSource alloc] initWithItems:self.posts];
-    self.tableView.dataSource = self.tableViewDataSource;
-    self.tableView.delegate = self.tableViewDataSource;
+    self.shotTable.dataSource = self.tableViewDataSource;
+    self.shotTable.delegate = self;
     [self loadPosts:self.pageCount];
+}
+
+-(void)setUpDetailView:(ShotModel*)shot{
+    self.detailDataSource = [[DetailTableViewDataSource alloc] initWithShot:shot];
+    self.detailTable.dataSource = self.detailDataSource;
+    self.detailTable.delegate = self;
 }
 
 -(void) loadPosts:(int)page{
@@ -55,7 +67,12 @@
     
     [[NetworkingController sharedInstance]getShot:json parameters:parameters success:^(NSArray *shot) {
         [self.posts addObjectsFromArray:shot];
-        [self.tableView reloadData];
+        [self.shotTable reloadData];
+        if(self.shot == nil){
+            self.shot = [shot objectAtIndex:0];
+            [self setUpDetailView:self.shot];
+            [self.detailTable reloadData];
+        }
     } failure:^(NSError *erro) {
         NSLog(@"%@",erro);
     }];
@@ -69,7 +86,7 @@
 {
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
+    [self.shotTable addSubview:self.refreshControl];
 }
 
 //Executa o Pull to refresh
@@ -85,8 +102,8 @@
 {
     if ([segue.identifier isEqualToString:@"detailsSegue"])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetailsViewController *dvc = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.shotTable indexPathForSelectedRow];
+        DetailViewController *dvc = segue.destinationViewController;
         dvc.shot = [self.posts objectAtIndex:indexPath.row];
     }
 }
@@ -102,8 +119,20 @@
 #pragma mark UITableViewDelegateMethods
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == [self.tableView numberOfRowsInSection:1]-3 && self.pageCount <= 50){
+    if (indexPath.row == [self.posts count]-3 && self.pageCount <= 50 && tableView.tag == 1){
         [self loadPosts:self.pageCount++];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([tableView isEqual:self.shotTable]) return 250.0f;
+    else return UITableViewAutomaticDimension;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag == 1 && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        [self setUpDetailView:[self.posts objectAtIndex:indexPath.row]];
+        [self.detailTable reloadData];
     }
 }
 

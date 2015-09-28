@@ -28,7 +28,7 @@
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C21B9A15A7000E0EAC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68C11B9A15A7000E0EAC /* DetailsViewController.m */; };
-		95BA68C51B9A15A7000E0EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C31B9A15A7000E0EAC /* Main.storyboard */; };
+		95BA68C51B9A15A7000E0EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C31B9A15A7000E0EAC /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		95BA68C71B9A15A7000E0EAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C61B9A15A7000E0EAC /* Images.xcassets */; };
 		95BA68CA1B9A15A7000E0EAC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C81B9A15A7000E0EAC /* LaunchScreen.xib */; };
 		95BA68D61B9A15A7000E0EAC /* desafio_ios_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68D51B9A15A7000E0EAC /* desafio_ios_testsTests.m */; };
@@ -337,6 +337,9 @@
 		95BA68AE1B9A15A7000E0EAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Bruno Rendeiro";
 				TargetAttributes = {

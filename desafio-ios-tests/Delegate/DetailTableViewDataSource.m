@@ -39,7 +39,6 @@
     DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
     
     [cell configureCellforShot:self.shot];
-    
     return cell;
 }
 

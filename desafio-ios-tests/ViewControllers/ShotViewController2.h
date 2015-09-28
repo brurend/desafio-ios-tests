@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ShotTableViewDataSource.h"
 
-@interface ShotViewController2 : UIViewController <ShotTableViewDataSource>
+@interface ShotViewController2 : UIViewController <ShotTableViewDataSource, UITableViewDelegate>
 
 @end

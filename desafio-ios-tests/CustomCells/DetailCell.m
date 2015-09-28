@@ -18,7 +18,8 @@ NSString* const detailCellIdentifier = @"detailCell";
 -(void)configureCellforShot:(ShotModel *)shot{
     NSRange titleRange = {0, MIN([shot.title length], 30)};
     NSString *shortTitle = [shot.title substringWithRange:titleRange];
-    self.shotTitle.text = shortTitle;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) self.shotTitle.text = shot.title;
+    else self.shotTitle.text = shortTitle;
     self.shotViews.text = [shot.views stringValue];
     [self.shotImage sd_setImageWithURL:shot.image
                       placeholderImage:[UIImage imageNamed:placeholder]];

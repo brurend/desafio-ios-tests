@@ -43,7 +43,6 @@
     ShotModel *item = [self.items objectAtIndex:[indexPath row]];
 
     [cell configureCellforShot:item];
-    
     return cell;
 }
 
