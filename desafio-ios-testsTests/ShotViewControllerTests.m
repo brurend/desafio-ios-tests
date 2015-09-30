@@ -19,17 +19,20 @@
 #import "NetworkClient.h"
 #import "DetailViewController.h"
 #import "DetailTableViewDataSource.h"
+#import "ShotTableViewDataSource.h"
+#import "ShotModelContainer.h"
 
 @interface ShotViewController ()
 @property (strong, nonatomic) ShotTableViewDataSource* tableViewDataSource;
 @property (strong, nonatomic) DetailTableViewDataSource* detailDataSource;
-@property (weak, nonatomic) IBOutlet UITableView *detailTable;
+//@property (weak, nonatomic) IBOutlet UITableView *detailTable;
 @property (weak, nonatomic) IBOutlet UITableView *shotTable;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property int pageCount;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) ShotModel *shot;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) ShotModelContainer *modelContainer;
 @end
 
 SpecBegin(ShotViewControllerTests)
@@ -59,24 +62,19 @@ describe(@"Testes table view principal", ^{
     it(@"should have only one section", ^{
         expect([svc.shotTable numberOfSections]).to.equal(1);
     });
-    
-    it(@"should conform with UITableView delegate protocols", ^{
-        expect(svc).conformTo(@protocol(UITableViewDelegate));
-        expect(svc).conformTo(@protocol(ShotTableViewDataSource));
-    });
+
     
     it(@"should have expected ammount of cells", ^{
         NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
         NSArray *array = [dictonary objectForKey:@"shots"];
         
         id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
-        [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
+        [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
         id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
-        for (int i = 0; i < [array count]; i++){
-            [svc.posts addObject:[ShotModel parse:[array objectAtIndex:i]]];
-        }
+        svc.modelContainer.items = array;
+        
         
         NSInteger row = [svc.shotTable numberOfRowsInSection:0];
         expect(row).to.equal(15);

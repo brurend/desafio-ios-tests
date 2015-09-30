@@ -76,8 +76,8 @@
 		952B04661BB1E70B00965E33 /* ShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotViewController.h; sourceTree = "<group>"; };
 		952B04671BB1E70B00965E33 /* ShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotViewController.m; sourceTree = "<group>"; };
 		958C4B1E1BBB288A00490595 /* ShotDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotDataSourceTests.m; sourceTree = "<group>"; };
-		958C4B211BBC516600490595 /* ShotModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShotModelContainer.h; path = ../modelContainer/ShotModelContainer.h; sourceTree = "<group>"; };
-		958C4B221BBC516600490595 /* ShotModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShotModelContainer.m; path = ../modelContainer/ShotModelContainer.m; sourceTree = "<group>"; };
+		958C4B211BBC516600490595 /* ShotModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShotModelContainer.h; sourceTree = "<group>"; };
+		958C4B221BBC516600490595 /* ShotModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShotModelContainer.m; sourceTree = "<group>"; };
 		958C4B251BBC717C00490595 /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		958C4B261BBC717C00490595 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
 		958C4B271BBC717C00490595 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
@@ -212,8 +212,7 @@
 				958C4B211BBC516600490595 /* ShotModelContainer.h */,
 				958C4B221BBC516600490595 /* ShotModelContainer.m */,
 			);
-			name = modelContainer;
-			path = "untitled folder";
+			path = modelContainer;
 			sourceTree = "<group>";
 		};
 		958C4B241BBC711400490595 /* Helpers */ = {

@@ -25,7 +25,7 @@ describe(@"Testes shot model", ^{
         NSArray *array = [dictonary objectForKey:@"shots"];
         
         id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
-        [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
+        [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
         id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
@@ -40,7 +40,7 @@ describe(@"Testes shot model", ^{
         NSArray *array = [dictonary objectForKey:@"shots"];
         
         id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
-        [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
+        [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
         id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         

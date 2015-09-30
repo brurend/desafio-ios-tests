@@ -45,10 +45,7 @@ describe(@"Testes detail view controller", ^{
     it(@"should have a table view", ^{
         expect(dvc.tableView).toNot.beNil();
     });
-    
-    it(@"should conform with UITableView datasource and delegate protocols", ^{
-        expect(dvc).conformTo(@protocol(DetailTableViewDataSource));
-    });
+
     
     it(@"should have only one row", ^{
         expect([dvc.tableView numberOfRowsInSection:0]).to.equal(1);
