@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ShotTableViewDataSource.h"
+@class ShotModel;
 
-@interface ShotViewController : UIViewController <ShotTableViewDataSource, UITableViewDelegate>
+@interface ShotViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITableView *detailTable;
+
+-(void) loadPosts:(NSInteger)page;
+-(void)setUpDetailView:(ShotModel*)shot;
 
 @end

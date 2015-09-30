@@ -9,21 +9,23 @@
 #import "ShotTableViewDataSource.h"
 #import "ShotCell.h"
 #import "ShotModel.h"
-#import "NetworkingController.h"
+#import "NetworkClient.h"
+#import "ShotViewController.h"
+#import "HeaderCell.h"
 
 @interface ShotTableViewDataSource ()
 
-@property (strong, nonatomic) NSArray* items;
+@property (strong, nonatomic) ShotModelContainer* modelContainer;
 
 @end
 
 @implementation ShotTableViewDataSource
 
 
--(id)initWithItems:(NSArray*)items{
-    [super self];
+-(id)initWithModelContainer:(ShotModelContainer*)modelContainer{
+    self = [super init];
     if (self){
-        self.items = items;
+        self.modelContainer = modelContainer;
     }
     return self;
 }
@@ -35,15 +37,51 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.items count];
+        return [self.modelContainer.items count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:shotCellIdentifier];
-    ShotModel *item = [self.items objectAtIndex:[indexPath row]];
+    ShotCell *cell = [tableView dequeueReusableCellWithIdentifier:[ShotCell cellIdentifier]];
+    ShotModel *item = [self.modelContainer.items objectAtIndex:[indexPath row]];
 
+    
+    
     [cell configureCellforShot:item];
     return cell;
+    
+}
+
+#pragma mark UITableViewDelegate
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [self.modelContainer.items count]-3 && self.modelContainer.pageCount <= 50 && tableView.tag == 1){
+        
+        [self.shotViewController loadPosts:self.modelContainer.pageCount++];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+        return 250.0f;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag == 1 && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        [self.shotViewController setUpDetailView:[self.modelContainer.items objectAtIndex:indexPath.row]];
+        [self.shotViewController.detailTable reloadData];
+    }
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    [tableView registerNib:[HeaderCell registerNib] forCellReuseIdentifier:[HeaderCell cellIdentifier]];
+    HeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:[HeaderCell cellIdentifier]];
+    [cell configureCellforModelContainer:self.modelContainer];
+    return cell;
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44.0f;
 }
 
 @end

@@ -10,7 +10,15 @@
 #import "ShotModel.h"
 #import <UIImageView+WebCache.h>
 
+NSString* const placeholder = @"placeholder.png";
+//NSString* const shotCellIdentifier = @"shotCell";
+
 @implementation ShotCell
+
+
++(NSString*)cellIdentifier{
+    return NSStringFromClass([self class]);
+}
 
 -(void)configureCellforShot:(ShotModel *)shot{
     NSRange titleRange = {0, MIN([shot.title length], 30)};

@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *shotViewsCount;
 
 -(void)configureCellforShot:(ShotModel*)shot;
++(NSString*)cellIdentifier;
+extern NSString* const placeholder;
 
 
 @end

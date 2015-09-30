@@ -10,10 +10,8 @@
 
 @implementation ShotModel
 
-@synthesize title, desc, views, image;
 
-NSString* const placeholder = @"placeholder.png";
-NSString* const shotCellIdentifier = @"shotCell";
+
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{

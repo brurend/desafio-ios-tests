@@ -20,5 +20,6 @@
 extern NSString* const detailCellIdentifier;
 
 -(void)configureCellforShot:(ShotModel *)shot;
++(NSString*)cellIdentifier;
 
 @end

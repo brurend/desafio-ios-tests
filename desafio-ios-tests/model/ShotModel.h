@@ -18,7 +18,5 @@
 @property (strong, nonatomic) NSURL *image;
 @property (strong, nonatomic) ShotPlayerModel *player;
 
-extern NSString* const placeholder;
-extern NSString* const shotCellIdentifier;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "ShotCell.h"
 #import "ShotModel.h"
 #import "NSString+StripHTML.h"
+#import "ShotModelContainer.h"
+#import "ShareHelper.h"
 
 
 @interface DetailViewController ()
@@ -23,9 +26,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.tableView.estimatedRowHeight = 500.0f;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.navigationItem.title = @"Shots view";
+
     
     [self setUpTableView];
 }
@@ -34,34 +35,22 @@
     
     self.detailDataSource = [[DetailTableViewDataSource alloc] initWithShot:self.shot];
     self.tableView.dataSource = self.detailDataSource;
+    self.tableView.delegate = self.detailDataSource;
 }
 
 #pragma mark - Metodos botoes navBar
 - (IBAction)shareButton:(id)sender {
+    ShareHelper *helper = [ShareHelper new];
+    NSArray *items = [helper activityItems:self.shot];
     
-    NSString *title = self.shot.title;
-    if ([title length] == 0) title = @"";
-    NSString *desc = [self.shot.desc removeTags];
-    if ([desc length] == 0) desc = @"";
-    NSURL *url = self.shot.image;
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    if (image == nil) image = [UIImage imageNamed:placeholder];
-    NSArray *activityItems = @[title,desc,image];
-    NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
-    
-    UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:Items applicationActivities:nil];
+    UIActivityViewController *share = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     
     NSArray *exclude = @[UIActivityTypeAddToReadingList,UIActivityTypeAirDrop,UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFlickr,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll];
     
     share.excludedActivityTypes = exclude;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self presentViewController:share animated:YES completion:nil];
-    }
-    else {
-        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:share];
-        [popup presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    }
+    [self presentViewController:share animated:YES completion:nil];
+
     
 }
 

@@ -10,11 +10,15 @@
 #import "ShotModel.h"
 #import <UIImageView+WebCache.h>
 #import "NSString+StripHTML.h"
+#import "ShotCell.h"
 
 
 @implementation DetailCell
 
-NSString* const detailCellIdentifier = @"detailCell";
+
++(NSString*)cellIdentifier{
+    return NSStringFromClass([self class]);
+}
 
 -(void)configureCellforShot:(ShotModel *)shot{
     NSRange titleRange = {0, MIN([shot.title length], 30)};

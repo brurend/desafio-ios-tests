@@ -12,7 +12,7 @@
 #import <OCMock.h>
 #import <TLJsonFactory.h>
 #import "ShotPlayerModel.h"
-#import "NetworkingController.h"
+#import "NetworkClient.h"
 
 #import "ShotModel.h"
 
@@ -20,19 +20,13 @@ SpecBegin(ShotModelTests)
 
 describe(@"Testes shot model", ^{
     
-    it(@"should exist", ^{
-        ShotModel *sm = [[ShotModel alloc] init];
-        
-        expect(sm).toNot.beNil();
-    });
-    
     it(@"should parse dictonary json", ^{
         NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
         NSArray *array = [dictonary objectForKey:@"shots"];
         
-        id managerMock = [OCMockObject niceMockForClass:[NetworkingController class]];
+        id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
         [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
-        id classMock = OCMClassMock([NetworkingController class]);
+        id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
         ShotModel *sm = [ShotModel parse:[array objectAtIndex:0]];
@@ -45,9 +39,9 @@ describe(@"Testes shot model", ^{
         NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
         NSArray *array = [dictonary objectForKey:@"shots"];
         
-        id managerMock = [OCMockObject niceMockForClass:[NetworkingController class]];
+        id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
         [[[managerMock stub] andReturn:array] getShot:[OCMArg any] parameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
-        id classMock = OCMClassMock([NetworkingController class]);
+        id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
         NSArray *shotArray = [ShotModel parseArray:array];

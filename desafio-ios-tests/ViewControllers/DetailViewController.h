@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailTableViewDataSource.h"
 
-@interface DetailViewController : UIViewController <DetailTableViewDataSource>
+@interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) ShotModel *shot;
 

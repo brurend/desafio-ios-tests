@@ -7,16 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShotModelContainer.h"
+@class ShotViewController;
 
-@protocol ShotTableViewDataSource <NSObject>
+@interface ShotTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
--(void)loadPosts:(int)page;
+-(id)initWithModelContainer:(ShotModelContainer*)modelContainer;
+@property (strong, nonatomic) ShotViewController* shotViewController;
 
-@end
-
-
-@interface ShotTableViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
-
--(id)initWithItems:(NSArray*)items;
 
 @end

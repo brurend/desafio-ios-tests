@@ -19,27 +19,34 @@
 @implementation DetailTableViewDataSource
 
 -(id)initWithShot:(ShotModel*)shot{
-    [super self];
+    self = [super init];
     if (self){
         self.shot = shot;
     }
     return self;
 }
 
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
+#pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCellIdentifier];
+    DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:[DetailCell cellIdentifier]];
     
     [cell configureCellforShot:self.shot];
     return cell;
 }
+
+
+#pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 500.0f;
+}
+
 
 @end

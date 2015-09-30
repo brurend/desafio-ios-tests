@@ -17,7 +17,7 @@
             };
 }
 
-+(NSValueTransformer *)avatar_urlJSONTransformer
++(NSValueTransformer *)player_imageJSONTransformer
 {
     return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
 }

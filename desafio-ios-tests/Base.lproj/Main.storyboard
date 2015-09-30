@@ -6,10 +6,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Shot View Controller-->
+        <!--ShotViewController-->
         <scene sceneID="KMy-G1-S8X">
             <objects>
-                <viewController id="lzp-on-SPA" customClass="ShotViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShotViewController" title="ShotViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lzp-on-SPA" customClass="ShotViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGd-bv-rEs"/>
                         <viewControllerLayoutGuide type="bottom" id="0bp-ju-bn9"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="shotCell" rowHeight="250" id="iGO-It-65B" customClass="ShotCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ShotCell" rowHeight="250" id="iGO-It-65B" customClass="ShotCell">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iGO-It-65B" id="QZm-rk-Ua9">
@@ -185,6 +185,7 @@
                                                     <exclude reference="GPS-cK-IJq"/>
                                                     <exclude reference="Gdc-gp-kac"/>
                                                     <exclude reference="H02-ms-4vS"/>
+                                                    <exclude reference="H8m-FQ-m9L"/>
                                                     <include reference="I0D-9b-6NK"/>
                                                     <exclude reference="RGy-N0-auH"/>
                                                     <exclude reference="Ugn-Rl-hfv"/>
@@ -206,7 +207,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="500" id="Z3p-jP-hap" customClass="DetailCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="500" id="Z3p-jP-hap" customClass="DetailCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z3p-jP-hap" id="c1J-Ln-Qvc">
@@ -488,7 +489,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Gmr-2J-d46">
+                    <navigationItem key="navigationItem" title="Shots" id="Gmr-2J-d46">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Sa2-0a-LQh">
                             <connections>
                                 <action selector="share:" destination="lzp-on-SPA" id="dk3-v3-4Nw"/>
@@ -505,10 +506,10 @@
             </objects>
             <point key="canvasLocation" x="571" y="1164"/>
         </scene>
-        <!--Title-->
+        <!--Details-->
         <scene sceneID="oTs-LL-nH4">
             <objects>
-                <viewController id="4Pp-KI-UuH" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Pp-KI-UuH" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdr-aP-EKC"/>
                         <viewControllerLayoutGuide type="bottom" id="j1A-gA-WXJ"/>
@@ -521,7 +522,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" rowHeight="1000" id="zFo-10-EH6" customClass="DetailCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="1000" id="zFo-10-EH6" customClass="DetailCell">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFo-10-EH6" id="SKA-Ld-2Xg">
@@ -626,7 +627,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="Drg-OU-oiE">
+                    <navigationItem key="navigationItem" title="Details" id="Drg-OU-oiE">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="SFT-x2-mae">
                             <connections>
                                 <action selector="shareButton:" destination="4Pp-KI-UuH" id="nG4-pd-iF3"/>

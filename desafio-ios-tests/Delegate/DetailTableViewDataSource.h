@@ -10,11 +10,6 @@
 
 @class ShotModel;
 
-@protocol DetailTableViewDataSource <NSObject>
-
-
-
-@end
 
 @interface DetailTableViewDataSource : NSObject <UITableViewDelegate, UITableViewDataSource>
 
