@@ -12,6 +12,7 @@
 #import "NetworkClient.h"
 #import "ShotViewController.h"
 #import "HeaderCell.h"
+#import "ShotModelContainer.h"
 
 @interface ShotTableViewDataSource ()
 

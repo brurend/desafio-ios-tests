@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 @class ShotModelContainer;
 
-@interface HeaderCell : UITableViewCell
+@interface HeaderCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
 
 -(void)configureCellforModelContainer:(ShotModelContainer*)modelContainer;
-+(NSString*)cellIdentifier;
-+(UINib*)registerNib;
+
 
 @end

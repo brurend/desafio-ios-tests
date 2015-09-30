@@ -10,7 +10,6 @@
 #import "ShotModel.h"
 #import <UIImageView+WebCache.h>
 #import "NSString+StripHTML.h"
-#import "ShotCell.h"
 
 
 @implementation DetailCell

@@ -7,11 +7,8 @@
 //
 
 #import "DetailViewController.h"
-#import "ShotCell.h"
-#import "ShotModel.h"
-#import "NSString+StripHTML.h"
-#import "ShotModelContainer.h"
 #import "ShareHelper.h"
+#import "DetailTableViewDataSource.h"
 
 
 @interface DetailViewController ()

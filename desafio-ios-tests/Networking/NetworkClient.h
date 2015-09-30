@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
-#import "Mantle.h"
-#import "ShotModel.h"
 
 typedef void (^FetchShot)(NSArray * shots);
 typedef void (^FetchShotFailure)(NSError *erro);

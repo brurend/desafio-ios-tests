@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ShotModelContainer.h"
-@class ShotViewController;
+@class ShotViewController, ShotModelContainer;
 
 @interface ShotTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 

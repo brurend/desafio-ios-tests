@@ -27,6 +27,7 @@
 		958C4B281BBC717C00490595 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 958C4B261BBC717C00490595 /* HeaderCell.m */; settings = {ASSET_TAGS = (); }; };
 		958C4B291BBC717C00490595 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958C4B271BBC717C00490595 /* HeaderCell.xib */; settings = {ASSET_TAGS = (); }; };
 		958C4B2C1BBC71CA00490595 /* ShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 958C4B2B1BBC71CA00490595 /* ShareHelper.m */; settings = {ASSET_TAGS = (); }; };
+		95B8FE561BBC853600652BBF /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B8FE551BBC853600652BBF /* BaseTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		95BA68BC1B9A15A7000E0EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BB1B9A15A7000E0EAC /* main.m */; };
 		95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BA68BE1B9A15A7000E0EAC /* AppDelegate.m */; };
 		95BA68C51B9A15A7000E0EAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95BA68C31B9A15A7000E0EAC /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -83,6 +84,8 @@
 		958C4B271BBC717C00490595 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		958C4B2A1BBC71CA00490595 /* ShareHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareHelper.h; sourceTree = "<group>"; };
 		958C4B2B1BBC71CA00490595 /* ShareHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareHelper.m; sourceTree = "<group>"; };
+		95B8FE541BBC853600652BBF /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		95B8FE551BBC853600652BBF /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		95BA68B61B9A15A7000E0EAC /* desafio-ios-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "desafio-ios-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BA68BA1B9A15A7000E0EAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BA68BB1B9A15A7000E0EAC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				958C4B251BBC717C00490595 /* HeaderCell.h */,
 				958C4B261BBC717C00490595 /* HeaderCell.m */,
 				958C4B271BBC717C00490595 /* HeaderCell.xib */,
+				95B8FE541BBC853600652BBF /* BaseTableViewCell.h */,
+				95B8FE551BBC853600652BBF /* BaseTableViewCell.m */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				958C4B231BBC516600490595 /* ShotModelContainer.m in Sources */,
 				952B04651BB1E22400965E33 /* ShotTableViewDataSource.m in Sources */,
 				95BA68BF1B9A15A7000E0EAC /* AppDelegate.m in Sources */,
+				95B8FE561BBC853600652BBF /* BaseTableViewCell.m in Sources */,
 				950ED8891B9F569C00A4AF98 /* NetworkClient.m in Sources */,
 				95BA68BC1B9A15A7000E0EAC /* main.m in Sources */,
 				95D4784D1BB4914200BF8400 /* DetailCell.m in Sources */,

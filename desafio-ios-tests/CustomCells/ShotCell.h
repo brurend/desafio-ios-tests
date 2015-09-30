@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 
 @class ShotModel;
 
-@interface ShotCell : UITableViewCell
+@interface ShotCell : BaseTableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet UILabel *shotLabel;
@@ -18,8 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *shotViewsCount;
 
 -(void)configureCellforShot:(ShotModel*)shot;
-+(NSString*)cellIdentifier;
-extern NSString* const placeholder;
+//+(NSString*)cellIdentifier;
 
 
 @end

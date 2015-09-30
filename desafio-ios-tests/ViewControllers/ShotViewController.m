@@ -8,7 +8,6 @@
 
 #import "ShotViewController.h"
 #import "ShotModel.h"
-#import "ShotCell.h"
 #import "NetworkClient.h"
 #import "DetailTableViewDataSource.h"
 #import "DetailViewController.h"

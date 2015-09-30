@@ -10,8 +10,7 @@
 #import "ShotModel.h"
 #import <UIImageView+WebCache.h>
 
-NSString* const placeholder = @"placeholder.png";
-//NSString* const shotCellIdentifier = @"shotCell";
+
 
 @implementation ShotCell
 

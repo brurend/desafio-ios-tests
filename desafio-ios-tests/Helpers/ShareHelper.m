@@ -22,7 +22,6 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     if (image == nil) image = [UIImage imageNamed:@"placeholder.png"];
     NSArray *activityItems = @[title,desc,image];
-//    NSMutableArray *Items = [NSMutableArray arrayWithArray:activityItems];
     return activityItems;
 }
 

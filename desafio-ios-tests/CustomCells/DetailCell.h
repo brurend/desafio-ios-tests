@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 @class ShotModel;
 
-@interface DetailCell : UITableViewCell
+@interface DetailCell : BaseTableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *shotImage;
 @property (weak, nonatomic) IBOutlet UILabel *shotTitle;
 @property (weak, nonatomic) IBOutlet UILabel *shotViews;

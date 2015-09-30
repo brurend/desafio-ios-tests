@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DetailTableViewDataSource.h"
+@class ShotModel;
 
 @interface DetailViewController : UIViewController
 
