@@ -47,7 +47,7 @@
 
     
     
-    [cell configureCellforShot:item];
+    [cell setup:item];
     return cell;
     
 }
@@ -62,8 +62,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-        return 250.0f;
+    return [ShotCell cellHeight];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,15 +73,15 @@
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    [tableView registerNib:[HeaderCell registerNib] forCellReuseIdentifier:[HeaderCell cellIdentifier]];
+    [HeaderCell registerNibforTableView:tableView];
     HeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:[HeaderCell cellIdentifier]];
-    [cell configureCellforModelContainer:self.modelContainer];
+    [cell setup:self.modelContainer];
     return cell;
 
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44.0f;
+    return [HeaderCell cellHeight];
 }
 
 @end

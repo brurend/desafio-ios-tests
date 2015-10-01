@@ -34,14 +34,14 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:[DetailCell cellIdentifier]];
     
-    [cell configureCellforShot:self.shot];
+    [cell setup:self.shot];
     return cell;
 }
 
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewAutomaticDimension;
+    return [DetailCell cellHeight];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{

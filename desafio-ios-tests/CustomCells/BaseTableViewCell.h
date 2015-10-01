@@ -10,9 +10,9 @@
 
 @interface BaseTableViewCell : UITableViewCell
 
-extern NSString* const placeholder;
-
++(CGFloat)cellHeight;
+-(void)setup:(id)obj;
 +(NSString*)cellIdentifier;
-+(UINib*)registerNib;
++(void)registerNibforTableView:(UITableView*)tableView;
 
 @end

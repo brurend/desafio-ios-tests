@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
 
--(void)configureCellforModelContainer:(ShotModelContainer*)modelContainer;
+
 
 
 @end

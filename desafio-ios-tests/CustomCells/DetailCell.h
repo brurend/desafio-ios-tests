@@ -19,9 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *shotDesc;
 @property (weak, nonatomic) IBOutlet UIImageView *playerImage;
 
-extern NSString* const detailCellIdentifier;
 
--(void)configureCellforShot:(ShotModel *)shot;
-+(NSString*)cellIdentifier;
 
 @end

@@ -19,15 +19,19 @@
 SpecBegin(ShotModelTests)
 
 describe(@"Testes shot model", ^{
-    
-    it(@"should parse dictonary json", ^{
+    __block NSArray *array;
+    beforeAll(^{
         NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
-        NSArray *array = [dictonary objectForKey:@"shots"];
+        array = [dictonary objectForKey:@"shots"];
         
         id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
         [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
         id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
+    });
+    
+    it(@"should parse dictonary json", ^{
+
         
         ShotModel *sm = [ShotModel parse:[array objectAtIndex:0]];
         expect(sm).toNot.beNil();
@@ -36,13 +40,6 @@ describe(@"Testes shot model", ^{
     });
     
     it(@"should parse array json", ^{
-        NSDictionary *dictonary = [TLJsonFactory tl_jsonDictFromFile:@"dribble"];
-        NSArray *array = [dictonary objectForKey:@"shots"];
-        
-        id managerMock = [OCMockObject niceMockForClass:[NetworkClient class]];
-        [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
-        id classMock = OCMClassMock([NetworkClient class]);
-        OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
         
         NSArray *shotArray = [ShotModel parseArray:array];
         expect(shotArray).toNot.beNil();

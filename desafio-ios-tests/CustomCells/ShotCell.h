@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *shotView;
 @property (weak, nonatomic) IBOutlet UILabel *shotViewsCount;
 
--(void)configureCellforShot:(ShotModel*)shot;
-//+(NSString*)cellIdentifier;
 
 
 @end

@@ -10,14 +10,20 @@
 
 @implementation BaseTableViewCell
 
-NSString* const placeholder = @"placeholder.png";
+
++(CGFloat)cellHeight{
+    return 0;
+}
+-(void)setup:(id)obj{
+
+}
 
 +(NSString*)cellIdentifier{
     return NSStringFromClass([self class]);
 }
 
-+(UINib*)registerNib{
-    return [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
++(void)registerNibforTableView:(UITableView*)tableView{
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil] forCellReuseIdentifier:[self cellIdentifier]];
 }
 
 

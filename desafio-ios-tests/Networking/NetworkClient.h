@@ -15,11 +15,7 @@ typedef void (^FetchShotFailure)(NSError *erro);
 
 @interface NetworkClient : NSObject 
 
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
-@property (strong, nonatomic) NSArray *shots;
-
 +(instancetype)sharedInstance;
 -(void)getShotsWithParameters:(NSDictionary*)parameters success:(FetchShot)successBlock failure:(FetchShotFailure)failureBlock ;
-
 
 @end

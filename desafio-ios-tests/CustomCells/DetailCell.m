@@ -14,23 +14,23 @@
 
 @implementation DetailCell
 
-
-+(NSString*)cellIdentifier{
-    return NSStringFromClass([self class]);
++(CGFloat)cellHeight{
+    return UITableViewAutomaticDimension;
 }
 
--(void)configureCellforShot:(ShotModel *)shot{
+-(void)setup:(id)obj{
+    ShotModel *shot = (ShotModel*)obj;
     NSRange titleRange = {0, MIN([shot.title length], 30)};
     NSString *shortTitle = [shot.title substringWithRange:titleRange];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) self.shotTitle.text = shot.title;
     else self.shotTitle.text = shortTitle;
     self.shotViews.text = [shot.views stringValue];
     [self.shotImage sd_setImageWithURL:shot.image
-                      placeholderImage:[UIImage imageNamed:placeholder]];
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     self.shotDesc.text = [shot.desc removeTags];
     self.playerName.text = shot.player.player_name;
     [self.playerImage sd_setImageWithURL:shot.player.player_image
-                        placeholderImage:[UIImage imageNamed:placeholder]];
+                        placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 }
 
 @end

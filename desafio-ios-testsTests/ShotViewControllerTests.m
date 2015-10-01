@@ -33,6 +33,8 @@
 @property (strong, nonatomic) ShotModel *shot;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (strong, nonatomic) ShotModelContainer *modelContainer;
+
+-(void)setUpTableView;
 @end
 
 SpecBegin(ShotViewControllerTests)
@@ -72,14 +74,14 @@ describe(@"Testes table view principal", ^{
         [[[managerMock stub] andReturn:array] getShotsWithParameters:[OCMArg any] success:[OCMArg any] failure:[OCMArg any]];
         id classMock = OCMClassMock([NetworkClient class]);
         OCMStub(ClassMethod([classMock sharedInstance])).andReturn(managerMock);
-        
+
+
         svc.modelContainer.items = array;
-        
+
         
         NSInteger row = [svc.shotTable numberOfRowsInSection:0];
         expect(row).to.equal(15);
     });
-    
 
         
 });
@@ -99,10 +101,7 @@ describe(@"iPad tests", ^{
             expect(svc.detailTable).toNot.beNil;
         });
         
-        it(@"should conform to detailDataSource", ^{
-            DetailTableViewDataSource *dataSource = [[DetailTableViewDataSource alloc] initWithShot:[OCMArg any]];
-            expect(svc.detailTable.dataSource).to.beIdenticalTo(dataSource);
-        });
+
         
         
     }

@@ -15,17 +15,18 @@
 @implementation ShotCell
 
 
-+(NSString*)cellIdentifier{
-    return NSStringFromClass([self class]);
++(CGFloat)cellHeight{
+    return 250.0f;
 }
 
--(void)configureCellforShot:(ShotModel *)shot{
+-(void)setup:(id)obj{
+    ShotModel *shot = (ShotModel*)obj;
     NSRange titleRange = {0, MIN([shot.title length], 30)};
     NSString *shortTitle = [shot.title substringWithRange:titleRange];
     self.shotLabel.text = shortTitle;
     self.shotViewsCount.text = [shot.views stringValue];
     [self.shotImage sd_setImageWithURL:shot.image
-                      placeholderImage:[UIImage imageNamed:placeholder]];
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 }
 
 @end

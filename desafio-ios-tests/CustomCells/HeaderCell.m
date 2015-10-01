@@ -11,17 +11,15 @@
 
 @implementation HeaderCell
 
--(void)configureCellforModelContainer:(ShotModelContainer*)modelContainer{
+-(void)setup:(id)obj{
+    ShotModelContainer *modelContainer = (ShotModelContainer*)obj;
     self.categoryLabel.text = @"Popular";
     self.pageLabel.text = [NSString stringWithFormat:@"Page: %ld",(long)modelContainer.pageCount];
+
 }
 
-+(NSString*)cellIdentifier{
-    return NSStringFromClass([self class]);
-}
-
-+(UINib*)registerNib{
-    return [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
++(CGFloat)cellHeight{
+    return 44.0f;
 }
 
 @end

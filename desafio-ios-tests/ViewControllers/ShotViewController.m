@@ -44,6 +44,7 @@
     self.modelContainer.pageCount = 1;
     
     [self setUpTableView];
+    
 }
 
 -(ShotModelContainer*)modelContainer{

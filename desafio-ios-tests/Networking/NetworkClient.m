@@ -9,9 +9,13 @@
 #import "NetworkClient.h"
 #import "ShotModel.h"
 
+
+@interface NetworkClient ()
+    @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+@end
+
 @implementation NetworkClient
 
-@synthesize manager,shots;
 
 +(instancetype)sharedInstance{
     static NetworkClient *sharedController = nil;
@@ -23,9 +27,9 @@
 }
 
 -(void)getShotsWithParameters:(NSDictionary*)parameters success:(FetchShot)successBlock failure:(FetchShotFailure)failureBlock {
-    manager = [AFHTTPRequestOperationManager manager];
+    self.manager = [AFHTTPRequestOperationManager manager];
     NSString *json = @"https://api.dribbble.com/shots/popular";
-    [manager GET:json parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.manager GET:json parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *model = [ShotModel parseArray:[responseObject objectForKey:@"shots"]];
             successBlock(model);
         
